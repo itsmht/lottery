@@ -19,4 +19,9 @@ class Scheme extends Model
     {
         return $this->hasMany('App\Models\Purchase', 'purchase_id', 'purchase_id');
     }
+    function announcement()
+    {
+        return $this->hasMany('App\Models\Announcement', 'announcement_id', 'announcement_id');
+    }
+
 }

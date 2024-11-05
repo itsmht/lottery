@@ -63,6 +63,9 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user','type
     Route::get('purchaseList', [AdminController::class, 'purchaseList'])->name('purchaseList');
     Route::post('createPurchase',[AdminController::class, 'createPurchase'])->name('createPurchase');
     Route::post('updatePurchase',[AdminController::class, 'updatePurchase'])->name('updatePurchase');
+    Route::get('announcementList', [AdminController::class, 'announcementList'])->name('announcementList');
+    Route::post('createAnnouncement',[AdminController::class, 'createAnnouncement'])->name('createAnnouncement');
+    Route::post('updateAnnouncement',[AdminController::class, 'updateAnnouncement'])->name('updateAnnouncement');
 
 });
 

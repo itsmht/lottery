@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Scheme;
 use App\Models\Purchase;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -380,7 +381,7 @@ class AdminController extends Controller
             $purchase->picked_number = $req->picked_number;
             $purchase->scheme_id = $req->scheme_id;
             $purchase->user_id = $user1->user_id;
-            $purchase->status = "3";
+            $purchase->status = "1";
             $purchase->save();
             $url = "http://bulksmsbd.net/api/smsapi";
         $api_key = "kJIZ6KznjiJSbxnEVpi5";
@@ -417,6 +418,36 @@ class AdminController extends Controller
         $purchase = Purchase::where("purchase_id",$req->purchase_id)->first();
         $purchase->status = $req->status;
         $purchase->save();
+        Alert::success('Congrats', 'Action Performed!');
+        return back();
+    }
+    function announcementList()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $announcements = Announcement::where("status","1")->paginate(10);
+        $schemes = Scheme::all();
+        return view('admin.announcementList')
+            ->with('user',$user)
+            ->with('announcements',$announcements)
+            ->with('schemes',$schemes);
+    }
+    function createAnnouncement(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $ann = new Announcement();
+        $ann->winning_number = $req->winning_number;
+        $ann->scheme_id = $req->scheme_id;
+        $ann->status = "1";
+        $ann->save();
+        Alert::success('Congrats', 'Announcement Created!');
+        return back();
+    }
+    function updateAnnouncement(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $ann =  Announcement::where("announcement_id", $req->announcement_id)->first();
+        $ann->status = $req->status;
+        $ann->save();
         Alert::success('Congrats', 'Action Performed!');
         return back();
     }
