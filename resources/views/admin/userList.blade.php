@@ -67,8 +67,23 @@
                         </div>
                       </div>
                           </div>
+                          
                         </div>
+                        <div class="row">
 
+                          <div class="col-sm-1 col-md-6">
+  
+                              <div class="dt-buttons btn-group">
+                                  <div class="col-md-12">
+                                      <button type="button" data-toggle="modal" data-target="#largesizemodal" class="btn btn-success waves-effect waves-light p-1 float-right">Create New User</button>
+  
+                                  </div>
+  
+                              </div>
+  
+                          </div>
+  
+                      </div>
 
 
 
@@ -186,51 +201,43 @@
 @include('scripts.js')
 
 {{-- Modal --}}
-{{-- <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
+ <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Create New Company</h5>
+        <h5 class="modal-title">Create New User</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('createCompany')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <form action="{{route('createUser')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
           {{@csrf_field()}}
           <div class="form-group row">
-            <label for="USERS_NAME" class="col-sm-3 col-form-label">Company Name</label>
+            <label for="USERS_NAME" class="col-sm-3 col-form-label">Name</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" name="USERS_NAME" id="USERS_NAME" placeholder="Enter Company Name">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" required>
           </div></div>
 
           <div class="form-group row">
-            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Company Phone</label>
+            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Phone Number</label>
             <div class="col-sm-9">
-            <input type="number" class="form-control" name="USERS_MOBILE" id="USERS_MOBILE" placeholder="Enter Company Phone">
+            <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter Phone" required>
           </div></div>
           <div class="form-group row">
             <label for="INIT_PASSWORD" class="col-sm-3 col-form-label">Password</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" name="INIT_PASSWORD" id="INIT_PASSWORD" placeholder="Enter Password">
+            <input type="text" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+          </div></div>
+          <div class="form-group row">
+            <label for="INIT_PASSWORD" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+            <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email" >
           </div></div>
 
 
-            <div class="form-group row">
-                <label for="USERS_NAME" class="col-sm-3 col-form-label">Product Type</label>
-                <div class="col-sm-9">
-                    <div class="icheck-material-success icheck-inline">
-                        <input type="radio" id="initial" name="product_type" value="1">
-                        <label for="initial">LPG</label>
-
-                    </div>
-                    <div class="icheck-material-success icheck-inline">
-
-                        <input type="radio" id="monthly" name="product_type" value="0">
-                        <label for="monthly">General</label>
-                    </div>
-                </div></div>
+            
 
 
 
@@ -248,7 +255,7 @@
       </div>
     </div>
   </div>
-</div> --}}
+</div> 
 
 {{-- Modal End --}}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js">

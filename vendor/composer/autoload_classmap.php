@@ -6,6 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\AddBalanceCommand' => $baseDir . '/app/Console/Commands/AddBalanceCommand.php',
+    'App\\Console\\Commands\\DeductBalanceCommand' => $baseDir . '/app/Console/Commands/DeductBalanceCommand.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
@@ -26,8 +28,11 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Models\\Package' => $baseDir . '/app/Models/Package.php',
     'App\\Models\\ReferCodes' => $baseDir . '/app/Models/ReferCodes.php',
     'App\\Models\\Refers' => $baseDir . '/app/Models/Refers.php',
+    'App\\Models\\Scheme' => $baseDir . '/app/Models/Scheme.php',
+    'App\\Models\\Subscription' => $baseDir . '/app/Models/Subscription.php',
     'App\\Models\\Transaction' => $baseDir . '/app/Models/Transaction.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

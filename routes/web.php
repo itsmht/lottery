@@ -57,6 +57,9 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user','type
     Route::post('userRecharge', [AdminController::class, 'userRecharge'])->name('userRecharge');
     Route::post('editUser', [AdminController::class, 'editUser'])->name('editUser');
     Route::post('cancelTransaction',[AdminController::class, 'cancelTransaction'])->name('cancelTransaction');
+    Route::get('schemeList', [AdminController::class, 'schemeList'])->name('schemeList');
+    Route::post('createScheme',[AdminController::class, 'createScheme'])->name('createScheme');
+    Route::post('createUser',[AdminController::class, 'createUser'])->name('createUser');
 
 });
 

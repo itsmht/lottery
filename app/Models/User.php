@@ -63,4 +63,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Subscription', 'subscription_id', 'subscription_id');
     }
+    function scheme()
+    {
+        return $this->hasMany('App\Models\Scheme', 'scheme_id', 'scheme_id');
+    }
 }

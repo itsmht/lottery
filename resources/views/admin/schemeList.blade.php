@@ -25,7 +25,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-6">
-                  <h5 class="card-title">User List</h5>
+                  <h5 class="card-title">Scheme List</h5>
 
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                       </div>
 
                       </div> --}}
-                      <div class="row">
+                      {{-- <div class="row">
                         <div class="col-lg-12">
                           <div class="card">
                             <div class="col-sm-3 col-md-3 pull-right">
@@ -63,9 +63,23 @@
                             </div></div>
                           </form>
                           </div>
-                        </div></div>
+                        </div></div> --}}
                         
-                       
+                        <div class="row">
+
+                          <div class="col-sm-1 col-md-6">
+  
+                              <div class="dt-buttons btn-group">
+                                  <div class="col-md-12">
+                                      <button type="button" data-toggle="modal" data-target="#largesizemodal" class="btn btn-success waves-effect waves-light p-1 float-right">Create New Company</button>
+  
+                                  </div>
+  
+                              </div>
+  
+                          </div>
+  
+                      </div>
                      
 
 
@@ -74,24 +88,23 @@
                              <thead>
                                <tr>
                                  <th scope="col">#</th>
-                                 <th scope="col">Name</th>
-                                 <th scope="col">Unique ID</th>
-                                 <th scope="col">Email</th>
-                                 <th scope="col">Phone</th>
+                                 <th scope="col">Title</th>
+                                 <th scope="col">Price</th>
+                                 <th scope="col">Winning Price</th>
                                  <th scope="col">Status</th>
                                  {{-- <th scope="col">Action</th> --}}
                                </tr>
                              </thead>
                              <tbody>
-                               @foreach ($packages as $company)
+                               @foreach ($schemes as $company)
 
 
                                <tr>
-                                 <th id="companyId" scope="row">{{$company->user_id}}</th>
-                                 <td><a href="{{route('details',['id'=>$company->user_id, 'distinct_name'=>$company->name])}}" target="_blank">{{$company->name}}</a></td>
-                                 <td>{{$company->uniqueId}}</td>
-                                 <td>{{$company->email}}</td>
-                                 <td>{{$company->phone}}</td>
+                                 <th id="companyId" scope="row">{{$company->scheme_id}}</th>
+                                 {{-- <td><a href="{{route('details',['id'=>$company->user_id, 'distinct_name'=>$company->name])}}" target="_blank">{{$company->name}}</a></td> --}}
+                                 <td>{{$company->title}}</td>
+                                 <td>{{$company->price}}</td>
+                                 <td>{{$company->winning_price}}</td>
                                  @if($company->status==1)
                                    <td><span class="badge badge-success shadow-success m-1">Active</span></td>
                                    {{-- <button type="button" class="btn btn-success btn-round waves-effect waves-light m-1">Active</button>  --}}
@@ -122,7 +135,7 @@
 
                              </tbody>
                            </table>
-                           {!! $users->onEachSide(1)->links() !!}
+                           {!! $schemes->onEachSide(1)->links() !!}
                        </div>
 
 
@@ -181,7 +194,7 @@
 @include('scripts.js')
 
 {{-- Modal --}}
-{{-- <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
+ <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -191,41 +204,27 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('createCompany')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <form action="{{route('createScheme')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
           {{@csrf_field()}}
           <div class="form-group row">
-            <label for="USERS_NAME" class="col-sm-3 col-form-label">Company Name</label>
+            <label for="USERS_NAME" class="col-sm-3 col-form-label">Title</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" name="USERS_NAME" id="USERS_NAME" placeholder="Enter Company Name">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
           </div></div>
 
           <div class="form-group row">
-            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Company Phone</label>
+            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Price</label>
             <div class="col-sm-9">
-            <input type="number" class="form-control" name="USERS_MOBILE" id="USERS_MOBILE" placeholder="Enter Company Phone">
+            <input type="number" class="form-control" name="price" id="price" placeholder="Enter Price">
           </div></div>
           <div class="form-group row">
-            <label for="INIT_PASSWORD" class="col-sm-3 col-form-label">Password</label>
+            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Winning Price</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" name="INIT_PASSWORD" id="INIT_PASSWORD" placeholder="Enter Password">
+            <input type="number" class="form-control" name="winning_price" id="winning_price" placeholder="Enter Winning Price">
           </div></div>
+          
 
-
-            <div class="form-group row">
-                <label for="USERS_NAME" class="col-sm-3 col-form-label">Product Type</label>
-                <div class="col-sm-9">
-                    <div class="icheck-material-success icheck-inline">
-                        <input type="radio" id="initial" name="product_type" value="1">
-                        <label for="initial">LPG</label>
-
-                    </div>
-                    <div class="icheck-material-success icheck-inline">
-
-                        <input type="radio" id="monthly" name="product_type" value="0">
-                        <label for="monthly">General</label>
-                    </div>
-                </div></div>
 
 
 
@@ -243,7 +242,7 @@
       </div>
     </div>
   </div>
-</div> --}}
+</div> 
 
 {{-- Modal End --}}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js">

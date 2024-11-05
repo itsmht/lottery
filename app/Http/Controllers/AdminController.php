@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\ReferCodes;
 use App\Models\User;
 use App\Models\Transaction;
+use App\Models\Scheme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -296,5 +297,65 @@ class AdminController extends Controller
         Alert::success('Congrats', 'Cancelled');
         return back();
     }
+    function schemeList()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $transactions = Scheme::paginate(10);
+        return view('admin.schemeList')
+            ->with('user',$user)
+            ->with('schemes',$transactions);
+    }
+    function createScheme(Request $req)
+    {
+        $user = User::where('phone', session()->get('logged'))->first();
+        $scheme = new Scheme();
+        $scheme->title = $req->title;
+        $scheme->price = $req->price;
+        $scheme->winning_price = $req->winning_price;
+        $scheme->status = "1";
+        $scheme->save();
+        Alert::success('Congrats', 'Inserted');
+        return back();
+    }
 
+    function createUser(Request $req)
+    {
+        $user = User::where('phone', session()->get('logged'))->first();
+        $user1 = new \App\Models\User;
+        $user1->uniqueId = "user".Str::random(10);
+        $user1->name = $req->name;
+        $user1->email = $req->email;
+        $user1->security_code = $req->security_code;
+        $user1->phone = $req->phone;
+        $user1->password = $req->password;
+        $user1->type = 1;
+        $user1->status = 1;
+        $user1->save();
+        $refer2 = new ReferCodes();
+        $refer2->user_id = $user->user_id;
+        $refer2->code = random_int(100000, 999999);
+        $refer2->status = "1";
+        $refer2->save();
+        $url = "http://bulksmsbd.net/api/smsapi";
+        $api_key = "kJIZ6KznjiJSbxnEVpi5";
+        $senderid = "8809617613079";
+        
+        $data = [
+            "api_key" => $api_key,
+            "senderid" => $senderid,
+            "number" => $req->phone,
+            "message" => "Dear ". $req->name.", your account has been created on The Asian Lottery and your password is :". $req->password
+        ];
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        Alert::success('Congrats', 'User Created!');
+        return back();
+    }
 }

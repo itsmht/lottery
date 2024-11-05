@@ -523,6 +523,8 @@ class ComposerStaticInitc89a292b2971713b7cf05d16e1d6b518
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\AddBalanceCommand' => __DIR__ . '/../..' . '/app/Console/Commands/AddBalanceCommand.php',
+        'App\\Console\\Commands\\DeductBalanceCommand' => __DIR__ . '/../..' . '/app/Console/Commands/DeductBalanceCommand.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
@@ -543,8 +545,11 @@ class ComposerStaticInitc89a292b2971713b7cf05d16e1d6b518
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Package' => __DIR__ . '/../..' . '/app/Models/Package.php',
         'App\\Models\\ReferCodes' => __DIR__ . '/../..' . '/app/Models/ReferCodes.php',
         'App\\Models\\Refers' => __DIR__ . '/../..' . '/app/Models/Refers.php',
+        'App\\Models\\Scheme' => __DIR__ . '/../..' . '/app/Models/Scheme.php',
+        'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',
         'App\\Models\\Transaction' => __DIR__ . '/../..' . '/app/Models/Transaction.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
