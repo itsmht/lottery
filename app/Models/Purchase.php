@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Scheme extends Model
+class Purchase extends Model
 {
     use HasFactory;
-    protected $table = "schemes";
-    protected  $primaryKey = "scheme_id";
+    protected $table = "purchases";
+    protected  $primaryKey = "purchase_id";
 
     function user()
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'user_id');
     }
-    function purchase()
+    function scheme()
     {
-        return $this->hasMany('App\Models\Purchase', 'purchase_id', 'purchase_id');
+        return $this->belongsTo('App\Models\Scheme', 'scheme_id', 'scheme_id');
     }
+    
 }

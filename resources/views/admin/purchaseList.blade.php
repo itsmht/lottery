@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h5 class="card-title">Recharge Request List</h5>
+                                    <h5 class="card-title">Purchase Request List</h5>
 
                                 </div>
                             </div>
@@ -48,7 +48,21 @@
                               </div> --}}
 
 
+                              <div class="row">
 
+                                <div class="col-sm-1 col-md-6">
+        
+                                    <div class="dt-buttons btn-group">
+                                        <div class="col-md-12">
+                                            <button type="button" data-toggle="modal" data-target="#largesizemodal" class="btn btn-success waves-effect waves-light p-1 float-right">Create New Purchase</button>
+        
+                                        </div>
+        
+                                    </div>
+        
+                                </div>
+        
+                            </div>
 
 
 
@@ -57,38 +71,35 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Transaction ID</th>
-                                        <th scope="col">User's Phone Number</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Phone Number</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Status</th>
+                                        <th scope="col">Scheme</th>
+                                        <th scope="col">Picked Up Number</th>
                                         <th scope="col">Action</th>
                                         {{-- <th scope="col">Action</th> --}}
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($recharges as $company)
+                                    @foreach ($purchases as $company)
 
 
                                         <tr>
-                                            <th id="companyId" scope="row">{{$company->transaction_id}}</th>
-                                            <td>{{$company->trans}}</td>
-                                            <td>{{$company->user->phone}}</td>
+                                            <th id="companyId" scope="row">{{$company->purchase_id}}</th>
                                             <td>{{$company->user->name}}</td>
-                                            <td>{{$company->binance_id}}</td>
-                                            <td>{{$company->transaction_amount}}</td>
-                                            <td>{{$company->transaction_status}}</td>
+                                            <td>{{$company->user->phone}}</td>
+                                            <td>{{$company->scheme->title}}</td>
+                                            <td>{{$company->picked_number}}</td>
                                             <td>
-                                                <form action="{{route('approveRecharge',['id'=>$company->transaction_id])}}" method="post">
+                                                <form action="{{route('updatePurchase',['id'=>$company->purchase_id])}}" method="post">
                                                     {{@csrf_field()}}
-                                                    <input type="hidden"  name="transaction_id" value="{{$company->transaction_id}}">
-                                                    <input type="hidden" name="transaction_amount" value="{{$company->transaction_amount}}">
+                                                    <input type="hidden"  name="purchase_id" value="{{$company->purchase_id}}">
+                                                    <input type="hidden" name="status" value="1">
                                                     <button type="submit" class="badge badge-success shadow-success border border-success waves-effect waves-light m-1 show_confirm" data-toggle="tooltip" title='Delete'>Approve</button>
                                                 </form>
-                                                <form action="{{route('cancelTransaction',['id'=>$company->transaction_id])}}" method="post">
+                                                <form action="{{route('updatePurchase',['id'=>$company->purchase_id])}}" method="post">
                                                     {{@csrf_field()}}
-                                                    <input type="hidden" type="hidden" name="transaction_id" value="transaction_id">
+                                                    <input type="hidden" type="hidden" name="purchase_id" value="purchase_id">
+                                                    <input type="hidden" name="status" value="2">
                                                     <button type="submit" class="badge badge-danger shadow-danger border border-danger waves-effect waves-light m-1 show_confirm" data-toggle="tooltip" title='Delete'>Cancel</button>
                                                 </form>
                                             </td>
@@ -115,7 +126,7 @@
 
                                     </tbody>
                                 </table>
-                                {!! $recharges->onEachSide(1)->links() !!}
+                                {!! $purchases->onEachSide(1)->links() !!}
                             </div>
 
 
@@ -174,51 +185,41 @@
 @include('scripts.js')
 
 {{-- Modal --}}
-{{-- <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
+ <div class="modal fade" id="largesizemodal" style="display: none;" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Create New Company</h5>
+        <h5 class="modal-title">Create New Purchase</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('createCompany')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <form action="{{route('createPurchase')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
 
           {{@csrf_field()}}
           <div class="form-group row">
-            <label for="USERS_NAME" class="col-sm-3 col-form-label">Company Name</label>
+            <label for="USERS_NAME" class="col-sm-3 col-form-label">Pick Up Number</label>
             <div class="col-sm-9">
-            <input type="text" class="form-control" name="USERS_NAME" id="USERS_NAME" placeholder="Enter Company Name">
+            <input type="number" class="form-control" name="picked_number" id="picked_number" placeholder="Enter A Number Between 1 To 100" min="1" max="100">
           </div></div>
 
           <div class="form-group row">
-            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Company Phone</label>
+            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">User's Phone</label>
             <div class="col-sm-9">
-            <input type="number" class="form-control" name="USERS_MOBILE" id="USERS_MOBILE" placeholder="Enter Company Phone">
-          </div></div>
-          <div class="form-group row">
-            <label for="INIT_PASSWORD" class="col-sm-3 col-form-label">Password</label>
-            <div class="col-sm-9">
-            <input type="text" class="form-control" name="INIT_PASSWORD" id="INIT_PASSWORD" placeholder="Enter Password">
+            <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter User's Phone">
           </div></div>
 
-
-            <div class="form-group row">
-                <label for="USERS_NAME" class="col-sm-3 col-form-label">Product Type</label>
+                <div class="form-group row">
+                <label for="scheme" class="col-sm-3 col-form-label">Choose a Scheme:</label>
                 <div class="col-sm-9">
-                    <div class="icheck-material-success icheck-inline">
-                        <input type="radio" id="initial" name="product_type" value="1">
-                        <label for="initial">LPG</label>
-
-                    </div>
-                    <div class="icheck-material-success icheck-inline">
-
-                        <input type="radio" id="monthly" name="product_type" value="0">
-                        <label for="monthly">General</label>
-                    </div>
-                </div></div>
+                <select name="scheme_id" id="scheme" class="form-control">
+                    @foreach($schemes as $scheme)
+                        <option value="{{ $scheme->scheme_id }}">{{ $scheme->title }}</option>
+                    @endforeach
+                </select>
+                </div>
+                </div>
 
 
 
@@ -236,7 +237,7 @@
       </div>
     </div>
   </div>
-</div> --}}
+</div> 
 
 {{-- Modal End --}}
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js">
@@ -300,8 +301,8 @@
         var name = $(this).data("name");
         event.preventDefault();
         swal({
-            title: `Are you sure you want to withdraw?`,
-            text: "If you change the status, the user's balance will deduct'.",
+            title: `Are you sure you want to approve/reject?`,
+            text: "If you change the status, It will effect'.",
             icon: "warning",
             buttons: true,
             dangerMode: true,

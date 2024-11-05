@@ -123,6 +123,22 @@
      </li>
 
 @endif
+@if($user->type==2 || $user->type==3)
+      <li>
+        <a href="{{route('schemeList')}}">
+            <i class="zmdi zmdi-lock"></i> <span>Schemes</span>
+        </a>
+     </li>
+
+@endif
+@if($user->type==2 || $user->type==3)
+      <li>
+        <a href="{{route('purchaseList')}}">
+            <i class="zmdi zmdi-lock"></i> <span>Purchases</span>
+        </a>
+     </li>
+
+@endif
 
 
 

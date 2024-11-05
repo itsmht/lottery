@@ -5,6 +5,7 @@ use App\Models\ReferCodes;
 use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Scheme;
+use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -356,6 +357,67 @@ class AdminController extends Controller
         curl_close($ch);
         
         Alert::success('Congrats', 'User Created!');
+        return back();
+    }
+    function purchaseList()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $purchases = Purchase::where("status","3")->paginate(10);
+        $schemes = Scheme::all();
+        return view('admin.purchaseList')
+            ->with('user',$user)
+            ->with('purchases',$purchases)
+            ->with('schemes',$schemes);
+    }
+    function createPurchase(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $user1 = User::where('phone',$req->phone)->first();
+        if($user1)
+        {
+            $scheme = Scheme::where("scheme_id", $req->scheme_id)->first();
+            $purchase = new Purchase;
+            $purchase->picked_number = $req->picked_number;
+            $purchase->scheme_id = $req->scheme_id;
+            $purchase->user_id = $user1->user_id;
+            $purchase->status = "3";
+            $purchase->save();
+            $url = "http://bulksmsbd.net/api/smsapi";
+        $api_key = "kJIZ6KznjiJSbxnEVpi5";
+        $senderid = "8809617613079";
+        
+        $data = [
+            "api_key" => $api_key,
+            "senderid" => $senderid,
+            "number" => $req->phone,
+            "message" => "Dear " . $user1->name . ", " . $scheme->title . " lottery has been purchased for your account. Picked Up Number: " . $req->picked_number
+        ];
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($ch);
+        curl_close($ch);
+            Alert::success('Congrats', 'Scheme Purchased for this user!');
+            return back();
+        }
+        else
+        {
+            Alert::error('Congrats', 'Inserted user not found by this phone number!');
+            return back();
+        }
+        
+    }
+    
+    function updatePurchase(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $purchase = Purchase::where("purchase_id",$req->purchase_id)->first();
+        $purchase->status = $req->status;
+        $purchase->save();
+        Alert::success('Congrats', 'Action Performed!');
         return back();
     }
 }

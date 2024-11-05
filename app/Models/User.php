@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Scheme', 'scheme_id', 'scheme_id');
     }
+    function purchase()
+    {
+        return $this->hasMany('App\Models\Purchase', 'purchase_id', 'purchase_id');
+    }
 }
