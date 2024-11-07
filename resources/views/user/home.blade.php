@@ -10,9 +10,33 @@
 	
 		<h1>The Asian Lottery</h1>
 		
-		<p class="big">The first free online lottery for the whole of India, with a jackpot worth at least <strong>₹1 Lakh</strong> in every draw!</p>
+		<p class="big">The first free online lottery for the whole of India, with a jackpot worth at least <strong>৳1 Lakh</strong> in every draw!</p>
 		
+		<div class="centred">
+	
+			<div class="lotto-india nextBox big" style="position: relative;">
 		
+				
+					
+				
+		
+					<div class="col">
+						<div class="title">
+							Next Jackpot
+							
+						</div>
+						
+							<div class="bigJackpotWhite">৳<span class="mainJackpot">1 Lakh</span></div>
+							
+											
+					</div>
+			
+			
+				
+		
+			</div>
+	
+		</div>
 		
 		<p>Indian lottery fans can take part in Lotto India from countries around the world, and it's easy to play. Just pick six numbers from 1 to 75 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special <a href="bumper-draw.html" title="Bumper Draws">Bumper Draws</a> that take place to celebrate big holidays and festivals in India.</p>
 		
