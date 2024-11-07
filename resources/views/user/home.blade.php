@@ -10,11 +10,11 @@
 	
 		<h1>The Asian Lottery</h1>
 		
-		<p class="big">The first free online lottery for the whole of India, with a jackpot worth at least <strong>৳1 Lakh</strong> in every draw!</p>
+		<p class="big">The first free online lottery for the whole of Bangladesh, with a jackpot worth at least <strong>৳1 Lakh</strong> in every draw!</p>
 		
 		<div class="centred">
 	
-			<div class="lotto-india nextBox big" style="position: relative;">
+			<div class="lotto-Bangladesh nextBox big" style="position: relative;">
 		
 				
 					
@@ -38,12 +38,12 @@
 	
 		</div>
 		
-		<p>Indian lottery fans can take part in Lotto India from countries around the world, and it's easy to play. Just pick six numbers from 1 to 75 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special <a href="bumper-draw.html" title="Bumper Draws">Bumper Draws</a> that take place to celebrate big holidays and festivals in India.</p>
+		<p>Bangladeshi lottery fans can take part in The Asian Lottery from countries around the world, and it's easy to play. Just pick six numbers from 1 to 99 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special <a href="bumper-draw.html" title="Bumper Draws">Bumper Draws</a> that take place to celebrate big holidays and festivals in Bangladesh.</p>
 		
-		<p>Lotto India draws take place every Tuesday and Friday at 6:00 PM in India. Entries are completely free and can be made until 4:00 PM on the day of each draw, and will open back up shortly after 7:00 PM for the next draw.</p>
+		<p>The Asian Lottery draws take place everyday at 9:00 PM in Bangladesh. Entries are completely free and can be made until 8:00 PM on the day of each draw, and will open back up shortly after 9:00 PM for the next draw.</p>
 		
 		<h2>Latest Results</h2>
-		<p>Draws take place every Tuesday and Friday at 6:00 PM, and you can find the latest winning numbers directly below or on the <a href="results.html" title="Lotto India Results">Results</a> page straight after every draw.</p>
+		<p>Draws take place everyday at 9:00 PM, and you can find the latest winning numbers directly below or on the <a href="{{route('result')}}" title="Lotto Bangladesh Results">Results</a> page straight after every draw.</p>
 		
 		<div class="resultsHome genBox">
 			<div class="fx -cn titleBox">
@@ -56,7 +56,7 @@
 				
 			</ul>
 			<div class="row fx -cn -md">
-				<a href="{{route('result')}}" title="More Lotto India Results" class="button orange">More Results</a>
+				<a href="{{route('result')}}" title="More Lotto Bangladesh Results" class="button orange">More Results</a>
 			</div>
 		</div><br>	
 	
@@ -77,7 +77,7 @@
 		<div class="title">Upcoming Draw:</div>
 		<p>Friday 8 November 2024</p>
 		
-			<br><a href="account/register.html" title="Play Lotto India" class="button" >Play Now</a>
+			<br><a href="account/register.html" title="Play Lotto Bangladesh" class="button" >Play Now</a>
 		
 	</div>
 
@@ -86,17 +86,17 @@
 		
 		<div class="linkBox">
 			<div class="box">
-				<div class="title stats"><a href="faq.html" title="Lotto India FAQs">FAQs</a></div>
+				<div class="title stats"><a href="faq.html" title="Lotto Bangladesh FAQs">FAQs</a></div>
 				<p>Read the FAQs page to get answer to the most frequenty asked questions.</p>
 			</div>
 			<div class="box">
-				<div class="title picker"><a href="check-numbers.html" title="Check your Lotto India numbers here">Check Your Numbers</a></div>
+				<div class="title picker"><a href="check-numbers.html" title="Check your Lotto Bangladesh numbers here">Check Your Numbers</a></div>
 				<p>Check your numbers to find out if you've won the jackpot.</p>
 			</div>
 		</div>
 		
 		<a class="helpBox" href="how-to-play.html" title="Learn how to play">
-			<p class="big">How to Play Lotto India</p>
+			<p class="big">How to Play Lotto Bangladesh</p>
 			<img src="images/info/guide.png" alt="Lotto Guide">
 		</a>
 
