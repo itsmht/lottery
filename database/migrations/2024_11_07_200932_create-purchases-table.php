@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->foreign('scheme_id')->references("scheme_id")->on("schemes");
             $table->integer('picked_number');
+            $table->integer('bkash');
             $table->string('status');
             $table->timestamps();
         });

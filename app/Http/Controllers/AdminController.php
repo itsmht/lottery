@@ -336,7 +336,7 @@ class AdminController extends Controller
         $refer2 = new ReferCodes();
         $refer2->user_id = $user->user_id;
         $refer2->code = random_int(100000, 999999);
-        $refer2->status = "1";
+        $refer2->status = "3";
         $refer2->save();
         $url = "http://bulksmsbd.net/api/smsapi";
         $api_key = "kJIZ6KznjiJSbxnEVpi5";

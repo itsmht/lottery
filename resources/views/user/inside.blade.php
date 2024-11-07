@@ -1,5 +1,6 @@
 @include('userLayouts.head')
 @include('userLayouts.navbar')
+@include('sweetalert::alert')
 
 <div class="container">
     <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
@@ -21,7 +22,8 @@
     <div id="ballContainer" class="ball-container" style="display: flex; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;"></div>
 
     <!-- Form for number submission -->
-    <form id="numberForm" method="POST">
+    <form id="numberForm" method="POST" action="{{route('buyLottery')}}">
+        {{@csrf_field()}}
         <!-- Label and TextField to show selected number -->
         <div style="text-align: center; margin-top: 20px;">
             <label for="selectedNumberField" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Selected Number: </label>
@@ -33,7 +35,7 @@
             <label for="selectedNumber" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Bkash Last 4 Digit: </label>
             <input type="text" required id="selectedNumber" name="bkash"  style="font-weight: bold; padding: 12px 20px; width: 120px; text-align: center; border-radius: 8px; border: 2px solid #ffcc00; background-color: #fff3e0; font-size: 18px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
         </div>
-
+        <input type="hidden" name="scheme_id" value="{{$scheme->scheme_id}}">
         <!-- Submit Button -->
         <div style="text-align: center; margin-top: 20px;">
             <button type="submit" style="padding: 12px 30px; font-size: 18px; background: linear-gradient(145deg, #ffcc00, #ff9933); color: white; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">

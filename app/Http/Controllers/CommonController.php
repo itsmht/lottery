@@ -69,4 +69,20 @@ class CommonController extends Controller
             return view('user.contact');
         }
     }
+    function result()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $schemes = Scheme::all();
+        if($user)
+        {
+            return view('user.result')
+                ->with('user',$user)
+                ->with('schemes', $schemes);
+        }
+        else
+        {
+            return view('user.result')
+            ->with('schemes', $schemes);
+        }
+    }
 }

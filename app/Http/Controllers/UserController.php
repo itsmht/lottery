@@ -7,6 +7,8 @@ use App\Models\Transaction;
 use App\Models\Package;
 use App\Models\Scheme;
 use App\Models\Subscription;
+use App\Models\Purchase;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -290,4 +292,18 @@ class UserController extends Controller
         $scheme = Scheme::where('scheme_id', $req->id)->first();
         return view('user.inside')->with('scheme',$scheme)->with('user',$user);
     }
+    function buyLottery(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $purchase = new Purchase;
+        $purchase->picked_number = $req->picked_number;
+        $purchase->scheme_id = $req->scheme_id;
+        $purchase->user_id = $user->user_id;
+        $purchase->bkash = $req->bkash;
+        $purchase->status = "3";
+        $purchase->save();
+        Alert::success('Congrats', 'You have successfully bought the lottery!');
+        return back();
+    }
+    
 }
