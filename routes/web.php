@@ -31,6 +31,7 @@ Route::get('/reverseSub', function () {
 Route::get('/', [CommonController::class, 'home'])->name('home');
 Route::get('about', [CommonController::class, 'about'])->name('about');
 Route::get('play', [CommonController::class, 'play'])->name('play');
+Route::get('result', [CommonController::class, 'result'])->name('result');
 Route::get('/contact', [CommonController::class, 'contact'])->name('contact');
 Route::get('/packages', [CommonController::class, 'packages'])->name('packages');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -85,4 +86,5 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user']], fu
     Route::post('userReferSubmit', [UserController::class, 'userReferSubmit'])->name('userReferSubmit');
     Route::post('buyLottery', [UserController::class, 'buyLottery'])->name('buyLottery');
     Route::get('inside/{id}', [UserController::class, 'inside'])->name('inside');
+    Route::get('insideResult/{id}', [UserController::class, 'insideResult'])->name('insideResult');
 });

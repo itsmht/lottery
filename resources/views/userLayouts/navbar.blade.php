@@ -16,8 +16,8 @@
                     <nav>
                         <ul>
                             
-                            <li><a href="{{route('play')}}" title="Play Lotto India">Play Online</a></li>
-                            <li><a href="results.html" title="Lotto India Results">Results</a></li>
+                            <li><a href="{{route('play')}}" title="Play">Play Online</a></li>
+                            <li><a href="{{route('result')}}" title="Results">Results</a></li>
                             <li><a href="check-numbers.html" title="Check your numbers">Check Tickets</a></li>
                             <li class="sub"><a href="information.html" title="Lotto India Information">Information</a><span class="expand" onclick="navToggleAlt();">+</span>
                                 <div class="subNav">

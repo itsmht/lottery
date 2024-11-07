@@ -22,9 +22,7 @@
 		<div class="lotto-india nextBox big" style="position: relative;">
 	
 			
-				<div class="imgBox">
-					<img src="images/layout/logo.svg" alt="Lotto India Logo">
-				</div>
+				
 			
 	
 				<div class="col">

@@ -305,5 +305,12 @@ class UserController extends Controller
         Alert::success('Congrats', 'You have successfully bought the lottery!');
         return back();
     }
+    function insideResult(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $scheme = Scheme::where('scheme_id', $req->id)->first();
+        $anns = Announcement::where('scheme_id', $req->id)->where('status', '1')->paginate(6);
+        return view('user.insideResult')->with('scheme',$scheme)->with('user',$user)->with('anns', $anns);
+    }
     
 }
