@@ -32,7 +32,7 @@
 				
 			</ul>
 			<div class="row fx -cn -md">
-				<a href="results.html" title="More Lotto India Results" class="button orange">More Results</a>
+				<a href="{{route('result')}}" title="More Lotto India Results" class="button orange">More Results</a>
 			</div>
 		</div><br>	
 	

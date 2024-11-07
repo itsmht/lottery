@@ -30,6 +30,8 @@ Route::get('/reverseSub', function () {
 //Unprotected Routes
 Route::get('/', [CommonController::class, 'home'])->name('home');
 Route::get('about', [CommonController::class, 'about'])->name('about');
+Route::get('how', [CommonController::class, 'how'])->name('how');
+Route::get('rules', [CommonController::class, 'rules'])->name('rules');
 Route::get('play', [CommonController::class, 'play'])->name('play');
 Route::get('result', [CommonController::class, 'result'])->name('result');
 Route::get('/contact', [CommonController::class, 'contact'])->name('contact');

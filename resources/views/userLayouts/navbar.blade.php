@@ -18,27 +18,32 @@
                             
                             <li><a href="{{route('play')}}" title="Play">Play Online</a></li>
                             <li><a href="{{route('result')}}" title="Results">Results</a></li>
-                            <li><a href="check-numbers.html" title="Check your numbers">Check Tickets</a></li>
                             <li class="sub"><a href="information.html" title="Lotto India Information">Information</a><span class="expand" onclick="navToggleAlt();">+</span>
                                 <div class="subNav">
                                     <div class="innerNav">
                                         <ul>
-                                            <li><a href="how-to-play.html" title="How to Play Lotto India">How to Play</a></li>
-                                            <li><a href="prizes.html" title="Prizes">Prizes</a></li>								
-                                            <li><a href="faq.html" title="Frequently Asked Questions">FAQ</a></li>												
-                                            <li><a href="rules.html" title="Lotto India Rules">Rules</a></li>					
+                                            <li><a href="{{route('how')}}" title="How to Play Lotto India">How to Play</a></li>
+                                            <li><a href="{{route('about')}}" title="Prizes">About Us</a></li>								
+                                            <li><a href="{{route('contact')}}" title="Frequently Asked Questions">Contact</a></li>												
+                                            <li><a href="{{route('rules')}}" title="Lotto India Rules">Rules</a></li>					
                                         </ul>
                                     </div>
                                 </div>
                             </li>
-                            <li><a href="bumper-draw.html" title="Lotto India Bumper Draws">Bumper Draws</a></li>
+                            @if(session()->has('logged'))
+                            <li><a href="bumper-draw.html" title="Lotto India Bumper Draws">My History</a></li>
+                            @endif
                         </ul>
                     </nav>
                     
                     <div class="tabs">
-                        
-                            <a href="account/login.html" title="Play Lotto India" class="loginTab"><span>Login</span></a>
-                            <a href="account/register.html" title="Register a free account" class="loginTab"><span>Register</span></a>
+                        @if(session()->has('logged'))
+                        <a href="account/login.html" title="Play Lotto India" class="loginTab"><span>Profile</span></a>
+                            <a href="{{route('logout')}}" title="" class="loginTab"><span>Logout</span></a>
+                        @else
+                            <a href="{{route('login')}}" title="Play Lotto India" class="loginTab"><span>Login</span></a>
+                            <a href="{{route('register')}}" title="Register a free account" class="loginTab"><span>Register</span></a>
+                        @endif
                         
                     </div>
                     

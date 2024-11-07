@@ -85,4 +85,30 @@ class CommonController extends Controller
             ->with('schemes', $schemes);
         }
     }
+    function how()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        if($user)
+        {
+            return view('user.how')
+                ->with('user',$user);
+        }
+        else
+        {
+            return view('user.how');
+        }
+    }
+    function rules()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        if($user)
+        {
+            return view('user.rules')
+                ->with('user',$user);
+        }
+        else
+        {
+            return view('user.rules');
+        }
+    }
 }
