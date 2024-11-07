@@ -83,5 +83,5 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user']], fu
     Route::get('userTransactions', [UserController::class, 'userTransactions'])->name('userTransactions');
     Route::get('userRefer', [UserController::class, 'userRefer'])->name('userRefer');
     Route::post('userReferSubmit', [UserController::class, 'userReferSubmit'])->name('userReferSubmit');
-    Route::get('/play/inside/{id}', [UserController::class, 'inside'])->name('play.inside');
+    Route::get('inside/{id}', [UserController::class, 'inside'])->name('inside');
 });

@@ -5,6 +5,7 @@ use App\Models\ReferCodes;
 use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Package;
+use App\Models\Scheme;
 use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -287,6 +288,6 @@ class UserController extends Controller
     {
         $user = User::where('phone',session()->get('logged'))->first();
         $scheme = Scheme::where('scheme_id', $req->id)->first();
-        return view('inside')->with('scheme',$scheme)->with('user',$user);
+        return view('user.inside')->with('scheme',$scheme)->with('user',$user);
     }
 }

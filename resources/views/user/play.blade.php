@@ -58,7 +58,7 @@
 			<div class="date" style="color: #333;">Wednesday 6th November</div>
 			
             @if(session()->has('logged'))
-            <a href="{{ route('play.inside', ['id' => $scheme->scheme_id]) }}" class="button">Play Now</a>
+            <a href="{{ route('inside', ['id' => $scheme->scheme_id]) }}" class="button">Play Now</a>
             @else
                 <a href="{{route('login')}}"  class="button">Login</a>
             @endif
