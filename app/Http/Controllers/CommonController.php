@@ -12,15 +12,17 @@ class CommonController extends Controller
     function home()
     {
         $user = User::where('phone',session()->get('logged'))->first();
-        $packages = Package::all();
+        $schemes = Scheme::all();
         if($user)
         {
             return view('user.home')
-                ->with('user',$user);
+                ->with('user',$user)
+                ->with('schemes', $schemes);
         }
         else
         {
-            return view('user.home');
+            return view('user.home')
+            ->with('schemes', $schemes);
         }
     }
     function play()

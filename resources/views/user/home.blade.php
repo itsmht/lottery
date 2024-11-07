@@ -41,7 +41,29 @@
 		<p>Bangladeshi lottery fans can take part in The Asian Lottery from countries around the world, and it's easy to play. Just pick six numbers from 1 to 99 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special <a href="bumper-draw.html" title="Bumper Draws">Bumper Draws</a> that take place to celebrate big holidays and festivals in Bangladesh.</p>
 		
 		<p>The Asian Lottery draws take place everyday at 9:00 PM in Bangladesh. Entries are completely free and can be made until 8:00 PM on the day of each draw, and will open back up shortly after 9:00 PM for the next draw.</p>
+		<h2>Available Lotteries</h2>
+		<div class="centred">
+			@foreach($schemes as $scheme)
+				<div class="jackpotBox lottery powerball">
+					<div class="title">{{$scheme->title}}</div>
+					<div class="subJackpot" style="color: #333;">Price: {{$scheme->price}}</div>
+					<div class="jackpot">Winning Price: {{$scheme->winning_price}}!</div>
+					<div class="date" style="color: #333;">Wednesday 6th November</div>
+					
+					@if(session()->has('logged'))
+					<a href="{{ route('inside', ['id' => $scheme->scheme_id]) }}" class="button">Play Now</a>
+					@else
+						<a href="{{route('login')}}"  class="button">Login</a>
+					@endif
 		
+						
+				</div>
+			@endforeach
+			
+			</div><br>
+
+
+
 		<h2>Latest Results</h2>
 		<p>Draws take place everyday at 9:00 PM, and you can find the latest winning numbers directly below or on the <a href="{{route('result')}}" title="Lotto Bangladesh Results">Results</a> page straight after every draw.</p>
 		
@@ -75,9 +97,9 @@
 
 	<div class="ctaBox">
 		<div class="title">Upcoming Draw:</div>
-		<p>Friday 8 November 2024</p>
+		<p>Everyday at 9.00 PM</p>
 		
-			<br><a href="account/register.html" title="Play Lotto Bangladesh" class="button" >Play Now</a>
+			<br><a href="{{route('play')}}" title="Play Lotto Bangladesh" class="button" >Play Now</a>
 		
 	</div>
 
@@ -86,18 +108,18 @@
 		
 		<div class="linkBox">
 			<div class="box">
-				<div class="title stats"><a href="faq.html" title="Lotto Bangladesh FAQs">FAQs</a></div>
-				<p>Read the FAQs page to get answer to the most frequenty asked questions.</p>
+				<div class="title stats"><a href="{{route('about')}}" title="Lotto Bangladesh FAQs">How We Work</a></div>
+				<p>Read about The Asian Lottery and win daily.</p>
 			</div>
 			<div class="box">
-				<div class="title picker"><a href="check-numbers.html" title="Check your Lotto Bangladesh numbers here">Check Your Numbers</a></div>
+				<div class="title picker"><a href="{{route('result')}}" title="Check your Lotto Bangladesh numbers here">Check Your Numbers</a></div>
 				<p>Check your numbers to find out if you've won the jackpot.</p>
 			</div>
 		</div>
 		
-		<a class="helpBox" href="how-to-play.html" title="Learn how to play">
-			<p class="big">How to Play Lotto Bangladesh</p>
-			<img src="images/info/guide.png" alt="Lotto Guide">
+		<a class="helpBox" href="{{route('how')}}" title="Learn how to play">
+			<p class="big">How to Play The Asian Lottery</p>
+			<img src="../assets2/images/info/guide.png" alt="Lotto Guide">
 		</a>
 
 		

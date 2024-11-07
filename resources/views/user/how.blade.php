@@ -6,7 +6,7 @@
 
 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><meta itemprop="position" content="1"><a href="index.html" title="Lotto-India.com Home" itemprop="item"><span itemprop="name">Lotto.india.com</span></a></li>
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><meta itemprop="position" content="2"><a href="information.html" title="Lotto India Information" itemprop="item"><span itemprop="name">Information</span></a></li>	
+	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><meta itemprop="position" content="2"><a href="information.html" title="The Asian Lottery Information" itemprop="item"><span itemprop="name">Information</span></a></li>	
 	<li>How to Play</li>
 </ol>
 
@@ -14,35 +14,33 @@
 
 	<h1>How to Play</h1>
 
-	<p>Learn how to play Lotto India right here, and take part in the first free online lottery for the whole of India. Whether you’re located in India or elsewhere, playing couldn’t be simpler and takes seconds. Read on to find out how the lottery works, how to enter and what to expect from the Lotto India draw.</p>
-	<p>Entering a Lotto India draw will only take you a maximum of two minutes. Tickets are completely free and you will only need a computer, tablet or smartphone that can access the internet to play online. Once you are ready to enter, follow the steps below:</p>
 
 	<div id="steps" class="fx">
 	
 		<div class="row">
 			<div class="step">
-				<img itemprop="image" alt="Selecting your Numbers" src="images/howto/1-choose-numbers.svg">
+				<img itemprop="image" alt="Selecting your Numbers" src="../assets2/images/howto/1-choose-numbers.svg">
 				<div class="h3">Select Your Numbers</div>
-				<p>Visit the <a href="play.html" title="Play Lotto India">Play Lotto India</a> page and select the 'Play' button. In the numbers panel select six numbers from 1 to 75, or alternatively opt for a Quick Pick to have a random set of numbers generated for you.</p>
+				<p>Visit the <a href="{{route('play')}}" title="Play The Asian Lottery">Play The Asian Lottery</a> page and select the 'Play' button. In the numbers panel select six numbers from 1 to 99, or alternatively opt for a Quick Pick to have a random set of numbers generated for you.</p>
 			</div>
 			<div class="step">
-				<img alt="Choosing the number of draws" src="images/howto/2-choose-draws.svg">
+				<img alt="Choosing the number of draws" src="../assets2/images/howto/2-choose-draws.svg">
 				<div class="h3">Check the Draw Date</div>
-				<p>Your numbers will automatically be entered into the next draw which will be held on the next Tuesday or Friday. Make sure you check the date of this draw, as this is the only draw your numbers will be entered into and you can only win the jackpot for this draw.</p>
+				<p>Your numbers will automatically be entered into the next draw which will be held on everyday. Make sure you check the date of this draw, as this is the only draw your numbers will be entered into and you can only win the jackpot for this draw.</p>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="step">
-				<img itemprop="image" alt="Pay for your Panels" src="images/howto/3-pay.svg">
+				<img itemprop="image" alt="Pay for your Panels" src="../assets2/images/howto/3-pay.svg">
 				<div class="h3">Complete your entry</div>
 				<p>If you are a new user, you will need to register for an account and provide contact details. Existing users need to sign in to complete the checkout process and finalise your ticket entry. Once this has been completed you will see the entry in your account.</p>
 			</div>
 			<div class="step">
-				<img itemprop="image" alt="Check your numbers" src="images/howto/4-checker.svg">
+				<img itemprop="image" alt="Check your numbers" src="../assets2/images/howto/4-checker.svg">
 				<div class="h3">Check Your Numbers</div>
-				<p>Once you have completed your entry, look out for the order confirmation in your emails. You can then check your numbers against the official <a href="results.html" title="Lotto India Results">results</a> or use the <a href="check-numbers.html" title="Check your Lotto India Numbers">panel checker</a> to see if you have won in the last 90 days.</p>
-				<p>If you believe you have won a prize, visit the <a href="prizes.html" title="How to Claim a Lotto India Prize">Claiming Prizes</a> page to find out what to do next.</p>
+				<p>Once you have completed your entry, look out for the order confirmation in your emails. You can then check your numbers against the official <a href="results.html" title="The Asian Lottery Results">results</a> or use the <a href="check-numbers.html" title="Check your The Asian Lottery Numbers">panel checker</a> to see if you have won in the last 90 days.</p>
+				<p>If you believe you have won a prize, visit the <a href="prizes.html" title="How to Claim a The Asian Lottery Prize">Claiming Prizes</a> page to find out what to do next.</p>
 			</div>
 		</div>
 		
@@ -196,7 +194,7 @@
 	</style>
 
 
-	<a id="bnr-base" href="account/register.html" title="Play Lotto India" class="bnr-wrapper">
+	<a id="bnr-base" href="account/register.html" title="Play The Asian Lottery" class="bnr-wrapper">
 
 
 	<div id="bnr-bg"></div>

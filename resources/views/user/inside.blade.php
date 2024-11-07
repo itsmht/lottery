@@ -54,7 +54,7 @@
         // Generate balls with numbers from 1 to 100
         const ballContainer = document.getElementById("ballContainer");
 
-        for (let i = 1; i <= 100; i++) {
+        for (let i = 1; i < 100; i++) {
             const ball = document.createElement("div");
             ball.classList.add("ball");
             ball.textContent = i;

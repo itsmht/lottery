@@ -6,46 +6,20 @@
 
 <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><meta itemprop="position" content="1"><a href="index.html" title="Lotto-India.com Home" itemprop="item"><span itemprop="name">Lotto.india.com</span></a></li>
-	<li>Play Lotto India</li>
+	<li>Play Asian Lottery</li>
 </ol>
 
 <div class="genBox mBottom">
 
-	<h1>Play Lotto India</h1>
+	<h1>Play Asian Lottery</h1>
 
-	<p>Take the chance to win a jackpot worth at least ₹1 Lakh by playing Lotto India today. You could even win up to ₹10 Lakh when special Bumper Draws are held. It's the largest free online Indian lottery ever, not to mention the first of its kind: a national lottery for Indian people on every continent. Lotto India draws take place at 6:00 PM every Tuesday and Friday. To find out more, visit the <a href="how-to-play.html" title="How to Play Lotto India">How to Play</a> page.</p>
-
-	
-	
 	<div class="centred">
 	
-		<div class="lotto-india nextBox big" style="position: relative;">
-	
-			
-				
-			
-	
-				<div class="col">
-					<div class="title">
-						Next Jackpot
-						
-					</div>
-					
-						<div class="bigJackpotWhite">&#8377;<span class="mainJackpot">1 Lakh</span></div>
-						<div class="date">Friday, November 8, 2024</div>
-										
-				</div>
-		
-		
-			
-	
-		</div>
-
 	</div>
 	
 
 	
-	<p>Why not try these other great lotteries with huge prizes:</p>
+	<p>Why not try these other great lotteries with huge prizes? Check your luck.</p>
 		
 	<div class="centred">
 	@foreach($schemes as $scheme)

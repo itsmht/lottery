@@ -13,38 +13,9 @@
 
 	<h1>Results</h1>
 
-	<p>Take the chance to win a jackpot worth at least ₹1 Lakh by playing Lotto India today. You could even win up to ₹10 Lakh when special Bumper Draws are held. It's the largest free online Indian lottery ever, not to mention the first of its kind: a national lottery for Indian people on every continent. Lotto India draws take place at 6:00 PM every Tuesday and Friday. To find out more, visit the <a href="how-to-play.html" title="How to Play Lotto India">How to Play</a> page.</p>
 
 	
-	
-	<div class="centred">
-	
-		<div class="lotto-india nextBox big" style="position: relative;">
-	
-			
-			
-	
-				<div class="col">
-					<div class="title">
-						Next Jackpot
-						
-					</div>
-					
-						<div class="bigJackpotWhite">&#8377;<span class="mainJackpot">1 Lakh</span></div>
-						<div class="date">Friday, November 8, 2024</div>
-										
-				</div>
-		
-		
-			
-	
-		</div>
-
-	</div>
-	
-
-	
-	<p>Why not try these other great lotteries with huge prizes:</p>
+	<p>Check the latest results</p>
 		
 	<div class="centred">
 	@foreach($schemes as $scheme)

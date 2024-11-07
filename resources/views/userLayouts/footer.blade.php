@@ -3,7 +3,7 @@
     <div class="inner">
     
         <div class="row fx -al -cn -md mBottom">
-            <p class="smallprint">Material Copyright &copy; 2024 Lotto-India.com. All rights reserved.</p>
+            <p class="smallprint">Material Copyright &copy; 2024 The Asian Lottery. All rights reserved.</p>
         </div>
         
         <div class="row top fx -nowrap">
@@ -11,22 +11,14 @@
             <div class="linkBox">
                 <div class="title">Support</div>
                 <ul>
-                    <li><a href="contact-us.html" class="footer-link" title="Contact Lotto-India.com">Contact Us</a></li>
-                    <li><a href="how-to-play.html" class="footer-link" title="How to Play Lotto India">How to Play</a></li>
-                    <li><a href="faq.html" class="footer-link" title="FAQ's">FAQ</a></li>
-                    <li><a href="sitemap.html" class="footer-link" title="Lotto-India.com Sitemap">Sitemap</a></li>
+                    <li><a href="{{route('contact')}}" class="footer-link" title="Contact Lotto-India.com">Contact Us</a></li>
+                    <li><a href="{{route('how')}}" class="footer-link" title="How to Play Lotto India">How to Play</a></li>
+                    <li><a href="{{route('about')}}" class="footer-link" title="FAQ's">About Us</a></li>
+                    <li><a href="{{route('rules')}}" class="footer-link" title="Lotto-India.com Sitemap">Rules</a></li>
                 </ul>
             </div>
             
-            <div class="linkBox">
-                <div class="title">Site Policy</div>
-                <ul>
-                    <li><a href="privacy-policy.html" class="footer-link" title="Privacy Policy">Privacy Policy</a></li>
-                    <li><a href="disclaimer.html" class="footer-link" title="Site Disclaimer">Disclaimer</a></li>
-                    <li><a href="cookie-policy.html" class="footer-link" title="Cookie Policy">Cookie Policy</a></li>
-                    <li><a href="terms-and-conditions.html" class="footer-link" title="Lotto-India.com Terms and Conditions of Play">Terms and Conditions</a></li>
-                </ul>
-            </div>
+            
         
         </div>
     
