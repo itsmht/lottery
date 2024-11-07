@@ -168,6 +168,52 @@
 
 
 
+<style>
+	
+	.ball-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 600px;
+		margin: 20px auto;
+	}
+	.ball {
+		width: 50px;
+		height: 50px;
+		margin: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: #ffcc00;
+		border-radius: 50%;
+		cursor: pointer;
+		font-size: 18px;
+		font-weight: bold;
+		transition: background-color 0.3s ease;
+	}
+	.ball:hover {
+		background-color: #ff9933;
+	}
+	.ball.selected {
+		background-color: #66cc66;
+	}
+	button {
+		padding: 10px 20px;
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		font-size: 16px;
+		cursor: pointer;
+		margin-top: 20px;
+		border-radius: 5px;
+	}
+	button:hover {
+		background-color: #45a049;
+	}
+</style>
+
+
+
 
 
 <script>
