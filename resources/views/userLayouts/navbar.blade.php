@@ -3,7 +3,7 @@
     <div class="row">
     
         <div class="logoBox">
-            <div itemscope itemtype="http://schema.org/Organization" id="logo"><a itemprop="url" href="index.html" title="Lotto-India.com"><img itemprop="logo" src="images/layout/logo.png" alt="Lotto-India.com Logo"></a></div>
+            <div itemscope itemtype="http://schema.org/Organization" id="logo"><a itemprop="url" href="{{route('home')}}" title="Lotto-India.com"><img itemprop="logo" src="../assets2/images/logo.jpeg" alt="Lotto-India.com Logo"></a></div>
         </div>
         
         <div class="navButton" onclick="navToggle();"><span></span></div>
@@ -18,7 +18,7 @@
                             
                             <li><a href="{{route('play')}}" title="Play">Play Online</a></li>
                             <li><a href="{{route('result')}}" title="Results">Results</a></li>
-                            <li class="sub"><a href="information.html" title="Lotto India Information">Information</a><span class="expand" onclick="navToggleAlt();">+</span>
+                            <li class="sub"><a href="#" title="Lotto India Information">Information</a><span class="expand" onclick="navToggleAlt();">+</span>
                                 <div class="subNav">
                                     <div class="innerNav">
                                         <ul>
