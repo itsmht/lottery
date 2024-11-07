@@ -45,7 +45,7 @@
     </form>
 
     <div class="genBox mBottom fx -bt">
-        <p>Please note: The results of this checker do not act as proof that you have won a Lotto India prize. You must have a valid entry for the draw in question to be able to claim any prizes. Find out more on the <a href="prizes.html" title="Claim Lotto India prizes">Claim Your Prize</a> page.</p>
+        <p>Please note: The results of this checker do not act as proof that you have won a The Asian Lottery prize. You must have a valid entry for the draw in question to be able to claim any prizes. </p>
     </div>
 
     <script src="../assets2/js/multi-checker-gridf425?v=0pMEZt8kWS-V7aLU-kuGysJwD0TRF-iGwF8DsR8JclA1"></script>
