@@ -38,7 +38,7 @@
 	
 		</div>
 		
-		<p>Bangladeshi lottery fans can take part in The Asian Lottery from countries around the world, and it's easy to play. Just pick six numbers from 1 to 99 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special <a href="bumper-draw.html" title="Bumper Draws">Bumper Draws</a> that take place to celebrate big holidays and festivals in Bangladesh.</p>
+		<p>Bangladeshi lottery fans can take part in The Asian Lottery from countries around the world, and it's easy to play. Just pick six numbers from 1 to 99 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special Bumper Draws that take place to celebrate big holidays and festivals in Bangladesh.</p>
 		
 		<p>The Asian Lottery draws take place everyday at 9:00 PM in Bangladesh. Entries are completely free and can be made until 8:00 PM on the day of each draw, and will open back up shortly after 9:00 PM for the next draw.</p>
 		<h2>Available Lotteries</h2>
