@@ -451,4 +451,9 @@ class AdminController extends Controller
         Alert::success('Congrats', 'Action Performed!');
         return back();
     }
+    function searchRequest(Requese $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $ann->scheme_id = $req->scheme_id;
+    }
 }
