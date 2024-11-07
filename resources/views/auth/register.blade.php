@@ -37,7 +37,7 @@
         <div class="card-body">
             <div class="card-content p-2">
                 <div class="text-center">
-                    <img style="width: 273px; height:100px;" src="assets1/images/logo.jpg" class="logo-icon" alt="logo icon">
+                    <img style="width: 273px; height:100px;" src="assets1/images/logo1.jpg" class="logo-icon" alt="logo icon">
                 </div>
                 <div class="card-title text-uppercase text-center py-3">Register</div>
 
