@@ -7,7 +7,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<title>Lotto India | Win ₹1 Lakh for Free!</title>
+	<title>The Asian Lottery</title>
 	<meta name="description" content="Lotto India is a free online lottery game for Indians worldwide that offers jackpots of up to ₹1 Lakh in every draw that doesn't cost anything to enter!">
 	<meta name="keywords" content="lotto india, indian lotto, lotto india online, play india lotto, free lottery">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
