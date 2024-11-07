@@ -281,4 +281,12 @@ class UserController extends Controller
 
         }
     }*/
+
+
+    function inside(Request $req)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $scheme = Scheme::where('scheme_id', $req->id)->first();
+        return view('inside')->with('scheme',$scheme)->with('user',$user);
+    }
 }

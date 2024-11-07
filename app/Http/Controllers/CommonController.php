@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Scheme;
 
 class CommonController extends Controller
 {
@@ -15,14 +16,29 @@ class CommonController extends Controller
         if($user)
         {
             return view('user.home')
-                ->with('user',$user)
-                ->with('packages',$packages);
+                ->with('user',$user);
         }
         else
         {
-            return view('user.home')
-                ->with('packages',$packages);
+            return view('user.home');
         }
+    }
+    function play()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $schemes = Scheme::all();
+        if($user)
+        {
+            return view('user.play')
+                ->with('user',$user)
+                ->with('schemes', $schemes);
+        }
+        else
+        {
+            return view('user.play')
+            ->with('schemes', $schemes);
+        }
+    
     }
     function about()
     {
@@ -39,23 +55,7 @@ class CommonController extends Controller
 
 
     }
-    function packages()
-    {
-        $user = User::where('phone',session()->get('logged'))->first();
-        $packages = Package::all();
-        if($user)
-        {
-            return view('user.packages')
-                ->with('user',$user)
-                ->with('packages',$packages);
-        }
-        else
-        {
-            return view('user.packages')
-                ->with('packages',$packages);;
-        }
-
-    }
+    
     function contact()
     {
         $user = User::where('phone',session()->get('logged'))->first();

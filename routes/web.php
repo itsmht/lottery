@@ -30,6 +30,7 @@ Route::get('/reverseSub', function () {
 //Unprotected Routes
 Route::get('/', [CommonController::class, 'home'])->name('home');
 Route::get('about', [CommonController::class, 'about'])->name('about');
+Route::get('play', [CommonController::class, 'play'])->name('play');
 Route::get('/contact', [CommonController::class, 'contact'])->name('contact');
 Route::get('/packages', [CommonController::class, 'packages'])->name('packages');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -82,4 +83,5 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user']], fu
     Route::get('userTransactions', [UserController::class, 'userTransactions'])->name('userTransactions');
     Route::get('userRefer', [UserController::class, 'userRefer'])->name('userRefer');
     Route::post('userReferSubmit', [UserController::class, 'userReferSubmit'])->name('userReferSubmit');
+    Route::get('/play/inside/{id}', [UserController::class, 'inside'])->name('play.inside');
 });
