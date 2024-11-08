@@ -13,30 +13,17 @@
 
 	<h1>Contact Us</h1>
 
-	<p>If you have a query about Lotto India, you may find what you are looking for on the <a href="faq.html" title="Lotto India FAQ">Frequently Asked Questions</a> page, which has information about how different aspects of the game work, how prizes are paid and much more.</p>
-    <p>If you still need help, select the most relevant option below for further information.</p>
+    <p>Thank you for visiting The Asia Lottery! We’re here to assist with any questions, suggestions, or support you may need.
 
-	<div class="contactQuestion">
-		<div class="box-expand">
-			<div class="js-tab">I've won a Lotto India Prize</div>
-			<div class="expandable">
-				<p>If you have won the jackpot, you will be contacted by email so that verification checks can be carried out before the prize is paid. You just need to log in to see what you have won. Go to the page on <a href="prizes.html" title="Claiming Lotto India Prizes">Claiming Your Prize</a> for more information.</p> 
-			</div>
-		</div>
-		<div class="box-expand">
-			<div class="js-tab">I’ve forgotten my password</div>
-			<div class="expandable">
-				<p>If you can’t remember your Lotto India password, you can request that a password reset email be sent to the address linked to your account.</p> 
-			</div>
-		</div>
-		<div class="box-expand">
-			<div class="js-tab">Other Enquiry</div>
-			<div class="expandable">
-				<p>If you have checked the FAQ and Information pages and still can’t find an answer to your query, please send an email to the following address and a member of the customer support team will respond as soon as possible.</p>
-                <p><img src="images/layout/contact.png" alt="Contact us"></p>
-			</div>
-		</div>
-	</div><br>
+		Get in Touch
+		
+		Whether you're looking for more information about our lottery offerings, need help with your account, or want to provide feedback, we’re just a message away.
+		
+		Telegram Channel
+		
+		Stay updated with the latest news, draw results, and exclusive promotions by joining our official Telegram channel: @berlin0622</p>
+
+	
 	
 </div>
 
