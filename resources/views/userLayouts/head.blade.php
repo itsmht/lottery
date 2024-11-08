@@ -43,7 +43,9 @@
 
 
 
-	
+	<script>
+		function navToggle(){var n=document.querySelector(".navButton"),t=document.querySelector(".toggle");n.className==="navButton"?n.className+=" active":n.className="navButton";t.className==="toggle"?t.className+=" active":t.className="toggle"}
+	</script>
 	
 	<script>
 		function addLoadEvent(n){if(window.addEventListener)window.addEventListener("load",n,!1);else if(window.attachEvent)window.attachEvent("onload",n);else{var d=window.onload;window.onload=function(){d&&d(),n()}}}
