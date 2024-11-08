@@ -469,9 +469,39 @@ class AdminController extends Controller
         Alert::success('Congrats', 'Action Performed!');
         return back();
     }
-    function searchRequest(Requese $req)
+    function approvedPurchases()
     {
         $user = User::where('phone',session()->get('logged'))->first();
-        $ann->scheme_id = $req->scheme_id;
+        $purchases = Purchase::where("status","1")->paginate(10);
+        $schemes = Scheme::all();
+        return view('admin.approvedPurchases')
+            ->with('user',$user)
+            ->with('purchases',$purchases)
+            ->with('schemes',$schemes);
     }
+    public function filterSubmit(Request $request)
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        // Retrieve the scheme_id and date from the request
+        $scheme_id = $request->input('scheme_id');
+        $date = $request->input('date');
+
+        // Validate inputs
+        $request->validate([
+            'scheme_id' => 'required|exists:schemes,scheme_id', // Ensures scheme_id is valid
+            'date' => 'required|date', // Ensures date is valid
+        ]);
+
+        // Query the database with the scheme_id and date
+        $purchases = Purchase::where('scheme_id', $scheme_id)
+            ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
+            ->get();
+
+        // Fetch schemes for the dropdown
+        $schemes = Scheme::all();
+
+        // Return the same view with the filtered data
+        return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
+    }
+
 }

@@ -134,7 +134,15 @@
 @if($user->type==2 || $user->type==3)
       <li>
         <a href="{{route('purchaseList')}}">
-            <i class="zmdi zmdi-lock"></i> <span>Purchases</span>
+            <i class="zmdi zmdi-lock"></i> <span>Purchase Requests</span>
+        </a>
+     </li>
+
+@endif
+@if($user->type==2 || $user->type==3)
+      <li>
+        <a href="{{route('approvedPurchases')}}">
+            <i class="zmdi zmdi-lock"></i> <span>Approved Purchases</span>
         </a>
      </li>
 
