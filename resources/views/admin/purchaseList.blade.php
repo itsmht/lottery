@@ -75,6 +75,7 @@
                                         <th scope="col">Phone Number</th>
                                         <th scope="col">Scheme</th>
                                         <th scope="col">Picked Up Number</th>
+                                        <th>Buying Date</th>
                                         <th scope="col">Action</th>
                                         {{-- <th scope="col">Action</th> --}}
                                     </tr>
@@ -89,6 +90,7 @@
                                             <td>{{$company->user->phone}}</td>
                                             <td>{{$company->scheme->title}}</td>
                                             <td>{{$company->picked_number}}</td>
+                                            <td>{{ \Carbon\Carbon::parse($purchase->created_at)->format('l, F j, Y') }}</td>
                                             <td>
                                                 <form action="{{route('updatePurchase',['id'=>$company->purchase_id])}}" method="post">
                                                     {{@csrf_field()}}
