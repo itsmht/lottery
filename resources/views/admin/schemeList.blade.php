@@ -71,7 +71,7 @@
   
                               <div class="dt-buttons btn-group">
                                   <div class="col-md-12">
-                                      <button type="button" data-toggle="modal" data-target="#largesizemodal" class="btn btn-success waves-effect waves-light p-1 float-right">Create New Company</button>
+                                      <button type="button" data-toggle="modal" data-target="#largesizemodal" class="btn btn-success waves-effect waves-light p-1 float-right">Create New Scheme</button>
   
                                   </div>
   
