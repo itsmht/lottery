@@ -443,6 +443,7 @@ class AdminController extends Controller
         $ninePmToday = Carbon::today()->setTime(21, 0, 0); 
         $purchases = Purchase::where('picked_number', $req->winning_number)
                     ->where('created_at', '<', $ninePmToday)
+                    ->where('status', '1')
                     ->get();
         foreach ($purchases as $purchase) {
             $purchase->is_win = 1;  // Set the 'is_win' column to 1
