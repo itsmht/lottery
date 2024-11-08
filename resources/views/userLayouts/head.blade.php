@@ -12,7 +12,7 @@
 	<meta name="HandheldFriendly" content="True">
 	
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" type="image/png" href="../assets2/apple-touch-icon.png">
+	<link rel="apple-touch-icon" type="image/png" href="../assets1/images/logo1.jpg">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 	
 	<link href="../assets2/css/stylesdeae.css?v=1vVjLFFXrqP7IGs26ex7oAvprdkZk3vo8yduB_NAjP01" rel="stylesheet"/>
