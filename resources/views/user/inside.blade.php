@@ -13,7 +13,7 @@
     </ol>
 
     <div class="genBox mBottom fx -bt">
-        <h1>{{$scheme->title}}</h1>
+        <h1>{{$scheme->title}}</h1><br>
         <p>Please send the money to Bkash/Nagad to: <strong>01610838330</strong>. And also input the last 4 digit while buying the lottery.</p>        
     </div>
 
