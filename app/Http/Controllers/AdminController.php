@@ -439,6 +439,14 @@ class AdminController extends Controller
         $ann->scheme_id = $req->scheme_id;
         $ann->status = "1";
         $ann->save();
+        $ninePmToday = Carbon::today()->setTime(21, 0, 0); 
+        $purchases = Purchase::where('picked_number', $req->winning_number)
+                    ->where('created_at', '<', $ninePmToday)
+                    ->get();
+        foreach ($purchases as $purchase) {
+            $purchase->is_win = 1;  // Set the 'is_win' column to 1
+            $purchase->save();  // Save the changes to the database
+        }
         Alert::success('Congrats', 'Announcement Created!');
         return back();
     }

@@ -1,15 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from lotto-india.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 05 Nov 2024 16:52:36 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
 
 	<meta charset="utf-8">
 	<title>The Asian Lottery</title>
-	<meta name="description" content="Lotto India is a free online lottery game for Indians worldwide that offers jackpots of up to ₹1 Lakh in every draw that doesn't cost anything to enter!">
-	<meta name="keywords" content="lotto india, indian lotto, lotto india online, play india lotto, free lottery">
+	<meta name="description" content="The Asian Loterry is a free online lottery game for Indians worldwide that offers jackpots of up to 1 Lakh in every draw that doesn't cost anything to enter!">
+	<meta name="keywords" content="the asian lottery, asian lottery, asian lottery bangladesh, bangladesh lottery, free lottery">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="HandheldFriendly" content="True">
 	

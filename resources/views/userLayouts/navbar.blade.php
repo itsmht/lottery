@@ -3,7 +3,7 @@
     <div class="row">
     
         <div class="logoBox">
-            <div itemscope itemtype="http://schema.org/Organization" id="logo"><a itemprop="url" href="{{route('home')}}" title="Lotto-India.com"><img itemprop="logo" src="assets1/images/logo1.jpg" alt="Lotto-India.com Logo"></a></div>
+            <div itemscope itemtype="http://schema.org/Organization" id="logo"><a itemprop="url" href="{{route('home')}}" title="the asian lottery"><img itemprop="logo" src="assets1/images/logo1.jpg" alt="The Asian Lottery"></a></div>
         </div>
         
         <div class="navButton" onclick="navToggle();"><span></span></div>
