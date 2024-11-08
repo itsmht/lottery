@@ -14,8 +14,7 @@
 
     <div class="genBox mBottom fx -bt">
         <h1>{{$scheme->title}}</h1>
-        <p>Check your Lotto India numbers to find out if you have the jackpot. There are a couple of ways you can check your six numbers - either select them from a grid or type them in. Switch between the two methods by selecting the 'Input Mode' button on the right-hand side of the checker.</p>        
-        <p>The Checker also allows you to select the time period you wish to view, and whether you want to look at the results from Tuesday draws, Friday's draws, or both. Select the ‘Check Results’ button when you are ready. You will be shown which winning numbers you have matched in draws from your chosen time period, as well as the value of any prizes you have won. Select 'Add Line' to check more than one set of numbers at a time, or ‘Reset Checker’ to start again.</p>
+        <p>Please send the money to Bkash/Nagad to: <strong>01610838330</strong>. And also input the last 4 digit while buying the lottery.</p>        
     </div>
 
     <!-- Add the ball container here -->
