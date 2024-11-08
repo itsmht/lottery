@@ -1,11 +1,11 @@
 @include('userLayouts.head')
 @include('userLayouts.navbar')
-
+@include('sweetalert::alert')
 <div class="container">
     <div id="mainPromo" class="altBg">
         <div class="inner centred">
-            <h1>Register to play in our amazing FREE draw!</h1>
-            <p style="max-width: 800px; margin: auto;">Register now for the Lotto India. Submit your details right here to sign up in a matter of seconds. You’ll then be able to enter our twice-weekly draws, get your tickets checked and maybe win up to ₹1 Lakh! It’s completely free to register and play.</p>
+            <h1>Login to play in our amazing FREE draw!</h1>
+            <p style="max-width: 800px; margin: auto;">Login now for the The Asian Lottery. Submit your details right here to sign up in a matter of seconds. You’ll then be able to enter our site, play and maybe win up to 1 Lakh! It’s completely free to register and play.</p>
 
             <div class="formBox">
                 <h2>Enter your login credentials below:</h2>

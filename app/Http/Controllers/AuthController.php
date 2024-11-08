@@ -68,7 +68,7 @@ class AuthController extends Controller
 
     function register()
     {
-        return view('auth.register');
+        return view('auth.register_new');
     }
 
     function registerSubmit(Request $req)
@@ -76,9 +76,9 @@ class AuthController extends Controller
         $req->validate(
             [
                 //regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/
-                "name"=>"max:20|",
+                "name"=>"required|max:20",
                 //"email"=>"unique:users",
-                "security_code"=>"required|digits_between:6,8",
+                //"security_code"=>"required|digits_between:6,8",
                 'phone'=>'required|numeric|unique:users',
                 "password"=>"required|min:8",
                 //"password"=>"required|min:8|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/",
@@ -87,13 +87,13 @@ class AuthController extends Controller
 
             ],
             [
-                //"name.required"=> "Please Enter Your Name",
+                "name.required"=> "Please Enter Your Name",
                 "name.max"=> "Maximum 20 Characters",
                 //"name.regex"=>"Please Enter A Valid Name",
                 //"email.email"=>"Please Enter A Valid Email Address",
                 //"email.unique"=>"This Email is already registered",
-                "security_code.required"=>"Security Code is required.",
-                "security_code.digits_between"=>"Security Code must be a number and between 6 to 8 numbers.",
+                //"security_code.required"=>"Security Code is required.",
+                //"security_code.digits_between"=>"Security Code must be a number and between 6 to 8 numbers.",
                 //"security_code.min"=>"Minimum 6 numbers",
                 //"security_code.max"=>"Maximum 6 numbers",
                 //"email.required"=>"Please Enter Your Email Address",
@@ -114,7 +114,7 @@ class AuthController extends Controller
         $user->uniqueId = "user".Str::random(10);
         $user->name = $req->name;
         $user->email = $req->email;
-        $user->security_code = $req->security_code;
+        $user->security_code = 1;
         $user->phone = $req->phone;
         $user->password = $req->password;
         $user->type = 1;
