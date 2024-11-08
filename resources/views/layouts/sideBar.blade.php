@@ -99,30 +99,6 @@
      </li>
 
 @endif
-      @if($user->type==3)
-          <li>
-              <a href="{{route('rechargeList')}}">
-                  <i class="zmdi zmdi-lock"></i> <span>Recharge Requests</span>
-              </a>
-          </li>
-
-      @endif
-      @if($user->type==3)
-      <li>
-        <a href="{{route('withdrawList')}}">
-            <i class="zmdi zmdi-lock"></i> <span>Withdrawal Requests</span>
-        </a>
-     </li>
-
-@endif
-@if($user->type==2 || $user->type==3)
-      <li>
-        <a href="{{route('transactionList')}}">
-            <i class="zmdi zmdi-lock"></i> <span>Transactions</span>
-        </a>
-     </li>
-
-@endif
 @if($user->type==2 || $user->type==3)
       <li>
         <a href="{{route('schemeList')}}">
