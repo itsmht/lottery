@@ -438,6 +438,7 @@ class AdminController extends Controller
         $ann->winning_number = $req->winning_number;
         $ann->scheme_id = $req->scheme_id;
         $ann->status = "1";
+        $ann->created_at = new DateTime();
         $ann->save();
         $ninePmToday = Carbon::today()->setTime(21, 0, 0); 
         $purchases = Purchase::where('picked_number', $req->winning_number)
