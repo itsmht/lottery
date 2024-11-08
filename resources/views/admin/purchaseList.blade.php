@@ -209,6 +209,11 @@
             <div class="col-sm-9">
             <input type="number" class="form-control" name="phone" id="phone" placeholder="Enter User's Phone">
           </div></div>
+          <div class="form-group row">
+            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Bkash Last 4 Digit</label>
+            <div class="col-sm-9">
+            <input type="number" class="form-control" name="bkash" id="bkash" placeholder="Bkash Last 4 Digit">
+          </div></div>
 
                 <div class="form-group row">
                 <label for="scheme" class="col-sm-3 col-form-label">Choose a Scheme:</label>

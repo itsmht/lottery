@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use DateTime;
 
 class AdminController extends Controller
 {
@@ -314,6 +315,7 @@ class AdminController extends Controller
         $scheme->title = $req->title;
         $scheme->price = $req->price;
         $scheme->winning_price = $req->winning_price;
+        $scheme->duration = $req->duration;
         $scheme->status = "1";
         $scheme->save();
         Alert::success('Congrats', 'Inserted');
@@ -379,6 +381,7 @@ class AdminController extends Controller
             $scheme = Scheme::where("scheme_id", $req->scheme_id)->first();
             $purchase = new Purchase;
             $purchase->picked_number = $req->picked_number;
+            $purchase->bkash = $req->bkash;
             $purchase->scheme_id = $req->scheme_id;
             $purchase->user_id = $user1->user_id;
             $purchase->status = "1";
@@ -434,21 +437,24 @@ class AdminController extends Controller
     function createAnnouncement(Request $req)
     {
         $user = User::where('phone',session()->get('logged'))->first();
+        $scheme = Scheme::where('scheme_id', $req->scheme_id)->first();
+        $duration = $scheme->duration;
+        $todayNinePm = Carbon::today()->setTime(21, 0, 0); 
+        $startTime = $todayNinePm->copy()->subDays($duration);
         $ann = new Announcement();
         $ann->winning_number = $req->winning_number;
         $ann->scheme_id = $req->scheme_id;
         $ann->status = "1";
         $ann->created_at = new DateTime();
         $ann->save();
-        $ninePmToday = Carbon::today()->setTime(21, 0, 0); 
         Purchase::where('picked_number', $req->winning_number)
-                ->where('created_at', '<', $ninePmToday)
+                ->whereBetween('created_at', [$startTime, $todayNinePm])
                 ->where('status', '1')
                 ->update(['is_win' => 1]);
 
         // Update the 'is_win' column to 2 for purchases that do not match the winning number
         Purchase::where('picked_number', '!=', $req->winning_number)
-                ->where('created_at', '<', $ninePmToday)
+                ->whereBetween('created_at', [$startTime, $todayNinePm])
                 ->where('status', '1')
                 ->update(['is_win' => 2]);
         Alert::success('Congrats', 'Announcement Created!');

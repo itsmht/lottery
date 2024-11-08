@@ -223,6 +223,11 @@
             <div class="col-sm-9">
             <input type="number" class="form-control" name="winning_price" id="winning_price" placeholder="Enter Winning Price">
           </div></div>
+          <div class="form-group row">
+            <label for="USERS_MOBILE" class="col-sm-3 col-form-label">Duration</label>
+            <div class="col-sm-9">
+            <input type="number" class="form-control" name="duration" id="duration" placeholder="Enter Duration In Days">
+          </div></div>
           
 
 
