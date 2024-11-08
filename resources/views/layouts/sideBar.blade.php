@@ -9,7 +9,7 @@
             <a href="{{route('adminDashboard')}}">
 
         @endif
-       <img style="width: 121px; height:39px;" src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <img style="width: 121px; height:39px;" src="assets1/images/logo1.jpg" class="logo-icon" alt="logo icon">
       <h5 style="font-size: 12px;">Control Panel</h5>
 
     </a>

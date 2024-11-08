@@ -10,7 +10,7 @@
     <link href="assets/css/pace.min.css" rel="stylesheet"/>
     <script src="assets/js/pace.min.js"></script>
     <!--favicon-->
-    <link rel="icon" href="assets/images/logo-icon.png" type="image/x-icon">
+    <link rel="icon" href="assets1/images/logo1.jpg" type="image/x-icon">
     <!-- Vector CSS -->
     <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
     <!-- simplebar CSS-->
