@@ -22,11 +22,11 @@
 		
 					<div class="col">
 						<div class="title">
-							Next Jackpot
+							Weekly Jackpot
 							
 						</div>
 						
-							<div class="bigJackpotWhite">৳<span class="mainJackpot">1 Lakh</span></div>
+							<div class="bigJackpotWhite">৳<span class="mainJackpot">5 Lakh</span></div>
 							
 											
 					</div>
@@ -39,6 +39,32 @@
 		</div>
 		
 		<p>Bangladeshi lottery fans can take part in The Asian Lottery from countries around the world, and it's easy to play. Just pick six numbers from 1 to 99 in with a chance of becoming the next lakhpati for free! You could even win up to ₹10 Lakh in special Bumper Draws that take place to celebrate big holidays and festivals in Bangladesh.</p>
+
+		<div class="centred">
+	
+			<div class="lotto-Bangladesh nextBox big" style="position: relative;">
+		
+				
+					
+				
+		
+					<div class="col">
+						<div class="title">
+							Monthly Jackpot
+							
+						</div>
+						
+							<div class="bigJackpotWhite">৳<span class="mainJackpot">10 Lakh</span></div>
+							
+											
+					</div>
+			
+			
+				
+		
+			</div>
+	
+		</div>
 		
 		<p>The Asian Lottery draws take place everyday at 9:00 PM in Bangladesh. Entries are completely free and can be made until 8:00 PM on the day of each draw, and will open back up shortly after 9:00 PM for the next draw.</p>
 		<h2>Available Lotteries</h2>
@@ -48,7 +74,6 @@
 					<div class="title">{{$scheme->title}}</div>
 					<div class="subJackpot" style="color: #333;">Price: {{$scheme->price}}</div>
 					<div class="jackpot">Winning Price: {{$scheme->winning_price}}!</div>
-					<div class="date" style="color: #333;">Wednesday 6th November</div>
 					
 					@if(session()->has('logged'))
 					<a href="{{ route('inside', ['id' => $scheme->scheme_id]) }}" class="button">Play Now</a>
@@ -69,12 +94,11 @@
 		
 		<div class="resultsHome genBox">
 			<div class="fx -cn titleBox">
-				<div class="date">Tuesday, November 5, 2024</div>
-				<div class="date">Basic</div>
+				<div class="date">Find out your luck with everyday draws</div>
 			</div>
 			<ul class="balls alt">
 				
-					<li class="ball ball">12</li>
+					<li class="ball ball">?</li>
 				
 			</ul>
 			<div class="row fx -cn -md">

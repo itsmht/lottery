@@ -245,6 +245,13 @@
 	function addResizeEvent(e) { var t = window.onresize; if (typeof window.onresize != "function") { window.onresize = e } else { window.onresize = function () { if (t) { t() } e() } } }
 </script>
 	
+<style>
+	.nextBox.big1{
+		background:url(../images/layout/banner.jpeg) no-repeat 0;
+		background-size:cover;
+		padding:40px 20px
+	}
+	</style>
 	
 	
 
