@@ -20,7 +20,7 @@
                     {{@csrf_field()}}
                     <div class="fx-sm">
                         <div>
-                            <input id="phone" name="phone" placeholder="Enter Your Phone" class="textBox" tabindex="3" type="email" maxlength="255">
+                            <input id="phone" name="phone" placeholder="Enter Your Phone" class="textBox" tabindex="3"  maxlength="255">
                             @error('phone')
                                 <span class="text-danger" style="color: #dc3545;font-size: 0.9rem; margin-top: 5px; display: block;">{{$message}}</span>
                             @enderror
