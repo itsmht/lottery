@@ -31,7 +31,7 @@
                                 </div>
                             </li>
                             @if(session()->has('logged'))
-                            <li><a href="bumper-draw.html" title="Lotto India Bumper Draws">My History</a></li>
+                            <li><a href="{{route('history')}}" title="Lotto India Bumper Draws">My History</a></li>
                             @endif
                         </ul>
                     </nav>

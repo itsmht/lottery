@@ -89,4 +89,5 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user']], fu
     Route::post('buyLottery', [UserController::class, 'buyLottery'])->name('buyLottery');
     Route::get('inside/{id}', [UserController::class, 'inside'])->name('inside');
     Route::get('insideResult/{id}', [UserController::class, 'insideResult'])->name('insideResult');
+    Route::get('history', [UserController::class, 'history'])->name('history');
 });

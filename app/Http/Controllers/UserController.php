@@ -312,5 +312,13 @@ class UserController extends Controller
         $anns = Announcement::where('scheme_id', $req->id)->where('status', '1')->paginate(6);
         return view('user.insideResult')->with('scheme',$scheme)->with('user',$user)->with('anns', $anns);
     }
+    function history()
+    {
+        $user = User::where('phone',session()->get('logged'))->first();
+        $purchases = Purchase::where('user_id', $user->user_id)->get();
+        return view('user.history')
+                    ->with('user', $user)
+                    ->with('purchases', $purchases);
+    }
     
 }

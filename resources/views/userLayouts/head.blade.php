@@ -211,7 +211,31 @@
 </style>
 
 
-
+<style>
+    .table {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+    }
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+    }
+    .table th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .table td {
+        border: 1px solid #ddd;
+    }
+	table th {
+        background-color: white; /* Green background */
+        color: #28a745; /* White text */
+    }
+</style>
 
 
 <script>

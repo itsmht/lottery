@@ -441,14 +441,16 @@ class AdminController extends Controller
         $ann->created_at = new DateTime();
         $ann->save();
         $ninePmToday = Carbon::today()->setTime(21, 0, 0); 
-        $purchases = Purchase::where('picked_number', $req->winning_number)
-                    ->where('created_at', '<', $ninePmToday)
-                    ->where('status', '1')
-                    ->get();
-        foreach ($purchases as $purchase) {
-            $purchase->is_win = 1;  // Set the 'is_win' column to 1
-            $purchase->save();  // Save the changes to the database
-        }
+        Purchase::where('picked_number', $req->winning_number)
+                ->where('created_at', '<', $ninePmToday)
+                ->where('status', '1')
+                ->update(['is_win' => 1]);
+
+        // Update the 'is_win' column to 2 for purchases that do not match the winning number
+        Purchase::where('picked_number', '!=', $req->winning_number)
+                ->where('created_at', '<', $ninePmToday)
+                ->where('status', '1')
+                ->update(['is_win' => 2]);
         Alert::success('Congrats', 'Announcement Created!');
         return back();
     }
