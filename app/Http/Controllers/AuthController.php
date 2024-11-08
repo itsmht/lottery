@@ -17,7 +17,7 @@ class AuthController extends Controller
 {
     function login()
     {
-        return view('auth.login');
+        return view('auth.login_new');
     }
 
     function loginSubmit(Request $req)
