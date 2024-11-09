@@ -6,6 +6,7 @@
 
     <div class="genBox mBottom">
         <!-- Stylized Table -->
+        <div class="table-responsive">
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -46,6 +47,7 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     </div>
 
 </div>
