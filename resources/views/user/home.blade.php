@@ -10,7 +10,7 @@
 	
 		<h1>The Asian Lottery</h1>
 		
-		<p class="big">The first free online lottery for the whole of Bangladesh, with a jackpot worth at least <strong>৳1 Lakh</strong> in every draw!</p>
+		<p class="big">The first online lottery for the whole of Bangladesh, with a jackpot worth at least <strong>৳1 Lakh</strong> in every draw!</p>
 		
 		<div class="centred">
 	

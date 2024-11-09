@@ -39,8 +39,7 @@
 			<div class="step">
 				<img itemprop="image" alt="Check your numbers" src="../assets2/images/howto/4-checker.svg">
 				<div class="h3">Check Your Numbers</div>
-				<p>Once you have completed your entry, look out for the order confirmation in your emails. You can then check your numbers against the official <a href="results.html" title="The Asian Lottery Results">results</a> or use the <a href="check-numbers.html" title="Check your The Asian Lottery Numbers">panel checker</a> to see if you have won in the last 90 days.</p>
-				<p>If you believe you have won a prize, visit the <a href="prizes.html" title="How to Claim a The Asian Lottery Prize">Claiming Prizes</a> page to find out what to do next.</p>
+				<p>Once you have completed your entry, look out for the order confirmation in your emails. You can then check your numbers against the official <a href="{{route('result')}}" title="The Asian Lottery Results">results</a>.</p>
 			</div>
 		</div>
 		
