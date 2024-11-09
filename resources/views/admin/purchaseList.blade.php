@@ -90,7 +90,7 @@
                                             <td>{{$company->user->phone}}</td>
                                             <td>{{$company->scheme->title}}</td>
                                             <td>{{$company->picked_number}}</td>
-                                            <td>{{ \Carbon\Carbon::parse($purchase->created_at)->format('l, F j, Y') }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($company->created_at)->format('l, F j, Y') }}</td>
                                             <td>
                                                 <form action="{{route('updatePurchase',['id'=>$company->purchase_id])}}" method="post">
                                                     {{@csrf_field()}}
