@@ -38,7 +38,6 @@
                     
                     <div class="tabs">
                         @if(session()->has('logged'))
-                        <a href="account/login.html" title="Play Lotto India" class="loginTab"><span>Profile</span></a>
                             <a href="{{route('logout')}}" title="" class="loginTab"><span>Logout</span></a>
                         @else
                             <a href="{{route('login')}}" title="Play Lotto India" class="loginTab"><span>Login</span></a>
