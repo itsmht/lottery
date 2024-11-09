@@ -16,7 +16,9 @@
         <h1>{{$scheme->title}}</h1><br>
     </div>
     <div class="genBox mBottom fx -bt">
-        <p>Please send the money to the below number. And also input the last 4 digit while buying the lottery.</p>     
+        <p>Please send the money to the below number. And also input the last 4 digit while buying the lottery.</p>  
+    </div>
+    <div class="genBox mBottom fx -bt">
         <h3><strong>Bkash:01610838330</strong></h3>   
         <h3><strong>Nagad:01610838330</strong></h3>   
     </div>
