@@ -94,7 +94,6 @@
                                <tr>
                                  <th scope="col">#</th>
                                  <th scope="col">Phone</th>
-                                 <th scope="col">Name</th>
                                  <th scope="col">Unique ID</th>
                                  <th scope="col">Status</th>
                                  {{-- <th scope="col">Action</th> --}}
@@ -107,7 +106,6 @@
                                <tr>
                                  <th id="companyId" scope="row">{{$company->user_id}}</th>
                                  <td><a href="{{route('details',['id'=>$company->user_id, 'distinct_name'=>$company->phone])}}" target="_blank">{{$company->phone}}</a></td>
-                                 <td>{{$company->uniqueId}}</td>
                                  <td>{{$company->uniqueId}}</td>
                                  @if($company->status==1)
                                    <td><span class="badge badge-success shadow-success m-1">Active</span></td>
