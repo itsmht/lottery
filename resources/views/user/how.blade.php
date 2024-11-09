@@ -194,19 +194,6 @@
 	</style>
 
 
-	<a id="bnr-base" href="account/register.html" title="Play The Asian Lottery" class="bnr-wrapper">
-
-
-	<div id="bnr-bg"></div>
-	<div id="bnr-logo"></div>
-	<div id="bnr-textA" class="bnr-text">The first free online lottery for Indians Worldwide</div>
-	<div id="bnr-textB" class="bnr-text">Next Jackpot</div>
-	<div id="bnr-textC" class="bnr-text">₹1 Lakh*</div>
-	
-	
-		<div id="bnr-button1" class="bnr-button button">Play<br>Now</div>
-	
-	</a>
 
 
 </div>
