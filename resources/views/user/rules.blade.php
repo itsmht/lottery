@@ -3,11 +3,7 @@
 	<div class="container">
 	
 
-<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><meta itemprop="position" content="1"><a href="index.html" title="Lotto-India.com Home" itemprop="item"><span itemprop="name">Lotto.india.com</span></a></li>
-	<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><meta itemprop="position" content="2"><a href="information.html" title="Lotto India Information" itemprop="item"><span itemprop="name">Information</span></a></li>	
-	<li>Rules</li>
-</ol>
+
 
 <div class="genBox mBottom">
 
