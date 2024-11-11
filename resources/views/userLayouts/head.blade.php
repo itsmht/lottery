@@ -253,7 +253,60 @@
 	}
 	</style>
 	
+	<style>
+		.genBox {
+			background-color: #f8f9fa;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
 	
+		.genBox h1 {
+			color: #495057;
+			font-size: 2rem;
+			font-weight: 600;
+		}
+	
+		.form-control {
+			border-radius: 5px;
+			box-shadow: none;
+			border: 1px solid #ced4da;
+		}
+	
+		.form-control:focus {
+			border-color: #80bdff;
+			box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.25);
+		}
+	
+		.btn-primary {
+			background-color: #007bff;
+			border-color: #007bff;
+			padding: 10px 25px;
+			font-size: 1rem;
+			border-radius: 5px;
+			font-weight: 600;
+		}
+	
+		.btn-primary:hover {
+			background-color: #0056b3;
+			border-color: #004085;
+		}
+	
+		.alert-success {
+			background-color: #d4edda;
+			border-color: #c3e6cb;
+			color: #155724;
+		}
+	
+		.text-danger {
+			font-size: 0.875rem;
+			color: #dc3545;
+		}
+	
+		.text-center {
+			text-align: center;
+		}
+	</style>
 
 </head>
 
