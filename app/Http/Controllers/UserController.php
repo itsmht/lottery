@@ -200,7 +200,7 @@ class UserController extends Controller
     {
         $user = User::where('phone',session()->get('logged'))->first();
         $currentPackage = Subscription::where('user_id', $user->user_id)->where('validity', '>', 0)->first();
-        return view('user.userProfile')
+        return view('user.profile')
             ->with('user', $user)
             ->with('currentPackage', $currentPackage);
     }
