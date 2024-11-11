@@ -15,7 +15,6 @@
             <div class="genBox mBottom resultsBox colHalf">
                 <div class="row fx -bt -al">
                     <div class="date">{{ \Carbon\Carbon::parse($ann->created_at)->format('l, F j, Y') }}</div>
-                    <div class="drawNumber">Announcement Id <span>{{$ann->announcement_id}}</span></div>
                 </div>
                 <div class="centred">
                     <div class="ball ball">{{$ann->winning_number}}</div>
