@@ -33,6 +33,7 @@
                             @error('phone')
                                 <span class="text-danger" style="color: #dc3545;font-size: 0.9rem; margin-top: 5px; display: block;">{{$message}}</span>
                             @enderror
+							<input id="Phone" name="refer_code" placeholder="Refer Code" class="textBox" tabindex="4" type="text" maxlength="255"><br>
 						</div>
 						<div>
 							<input id="Password" name="password" placeholder="Choose a Password" class="textBox" tabindex="6" type="password" maxlength="255"><br>
