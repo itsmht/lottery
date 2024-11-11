@@ -13,7 +13,7 @@
         @endif
 
         <!-- Profile edit form -->
-        <form action="{{ route('user.profile.update') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('editUserProfile') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
 
