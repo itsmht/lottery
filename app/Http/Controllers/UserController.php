@@ -199,10 +199,8 @@ class UserController extends Controller
     function userProfile()
     {
         $user = User::where('phone',session()->get('logged'))->first();
-        $currentPackage = Subscription::where('user_id', $user->user_id)->where('validity', '>', 0)->first();
         return view('user.profile')
-            ->with('user', $user)
-            ->with('currentPackage', $currentPackage);
+            ->with('user', $user);
     }
     function editUserProfile(Request $req)
     {
