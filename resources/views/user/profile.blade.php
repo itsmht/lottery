@@ -115,6 +115,7 @@
         border-radius: 8px;
         box-shadow: none;
         border: 1px solid #ced4da;
+        padding: 0.75rem;
     }
 
     .form-control:focus {
@@ -167,6 +168,23 @@
         color: #495057;
         font-size: 2rem;
         font-weight: 600;
+    }
+
+    /* Ensure Consistent Vertical Alignment */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .form-group .form-control {
+        width: 100%;
+    }
+
+    /* Prevent Label and Input Misalignment */
+    .form-group label {
+        margin-bottom: 8px;
     }
 
     /* Responsive design adjustments */
