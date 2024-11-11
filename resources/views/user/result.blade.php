@@ -19,7 +19,6 @@
 			<div class="title">{{$scheme->title}}</div>
 			<div class="subJackpot" style="color: #333;">Price: {{$scheme->price}}</div>
 			<div class="jackpot">Winning Price: {{$scheme->winning_price}}!</div>
-			<div class="date" style="color: #333;">Wednesday 6th November</div>
 			
             @if(session()->has('logged'))
             <a href="{{ route('insideResult', ['id' => $scheme->scheme_id]) }}" class="button">Show</a>
