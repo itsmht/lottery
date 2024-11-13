@@ -98,11 +98,11 @@
                                                     <input type="hidden" name="status" value="1">
                                                     <button type="submit" class="badge badge-success shadow-success border border-success waves-effect waves-light m-1 show_confirm" data-toggle="tooltip" title='Delete'>Approve</button>
                                                 </form>
-                                                <form action="{{route('updatePurchase',['id'=>$company->purchase_id])}}" method="post">
-                                                    {{@csrf_field()}}
-                                                    <input type="hidden" type="hidden" name="purchase_id" value="purchase_id">
+                                                <form action="{{ route('updatePurchase', ['id' => $company->purchase_id]) }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="purchase_id" value="{{ $company->purchase_id }}">
                                                     <input type="hidden" name="status" value="2">
-                                                    <button type="submit" class="badge badge-danger shadow-danger border border-danger waves-effect waves-light m-1 show_confirm" data-toggle="tooltip" title='Delete'>Cancel</button>
+                                                    <button type="submit" class="badge badge-danger shadow-danger border border-danger waves-effect waves-light m-1 show_confirm" data-toggle="tooltip" title='Cancel'>Cancel</button>
                                                 </form>
                                             </td>
                                             {{-- @if ($company->ALL_ACCOUNTS_NAME)
