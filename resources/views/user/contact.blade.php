@@ -17,7 +17,7 @@
 		
 		Telegram Channel
 		
-		Stay updated with the latest news, draw results, and exclusive promotions by joining our official Telegram channel: @berlin0622</p>
+		Stay updated with the latest news, draw results, and exclusive promotions by joining our official Telegram channel: @Asianlottery</p>
 
 	
 	
