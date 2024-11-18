@@ -362,16 +362,46 @@ class AdminController extends Controller
         Alert::success('Congrats', 'User Created!');
         return back();
     }
-    function purchaseList()
+    //function purchaseList()
+    //{
+    //    $user = User::where('phone',session()->get('logged'))->first();
+    //    $purchases = Purchase::where("status","3")->paginate(10);
+    //    $schemes = Scheme::all();
+    //    return view('admin.purchaseList')
+    //        ->with('user',$user)
+    //        ->with('purchases',$purchases)
+    //        ->with('schemes',$schemes);
+    //}
+   
+
+    public function purchaseList()
     {
-        $user = User::where('phone',session()->get('logged'))->first();
-        $purchases = Purchase::where("status","3")->paginate(10);
+        $user = User::where('phone', session()->get('logged'))->first();
+
+        // Fetch all purchases with status "3" (pending status)
+        $purchases = Purchase::where("status", "3")->paginate(10);
+
+        // Fetch all schemes (no change needed for schemes)
         $schemes = Scheme::all();
-        return view('admin.purchaseList')
-            ->with('user',$user)
-            ->with('purchases',$purchases)
-            ->with('schemes',$schemes);
+
+        // Adjust the 'created_at' date for each purchase to reflect the 9 PM rule
+        foreach ($purchases as $purchase) {
+            $createdAt = Carbon::parse($purchase->created_at);
+
+            // Get 9 PM on the same day as the created_at timestamp
+            $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM on the same day as the record
+
+            // If the record was created after 9 PM, adjust the date to the next day
+            if ($createdAt->greaterThan($ninePmSameDay)) {
+                // Adjust the 'created_at' to the next day (start of the next day)
+                $purchase->created_at = $createdAt->addDay()->startOfDay();
+            }
+        }
+
+        // Return the view with the necessary data
+        return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
     }
+
     function createPurchase(Request $req)
     {
         $user = User::where('phone',session()->get('logged'))->first();
@@ -469,54 +499,145 @@ class AdminController extends Controller
         Alert::success('Congrats', 'Action Performed!');
         return back();
     }
+    //function approvedPurchases()
+    //{
+    //    $user = User::where('phone',session()->get('logged'))->first();
+    //    $purchases = Purchase::where("status","1")->paginate(10);
+    //    $schemes = Scheme::all();
+    //    return view('admin.approvedPurchases')
+    //        ->with('user',$user)
+    //        ->with('purchases',$purchases)
+    //        ->with('schemes',$schemes);
+    //}
     function approvedPurchases()
-    {
-        $user = User::where('phone',session()->get('logged'))->first();
-        $purchases = Purchase::where("status","1")->paginate(10);
-        $schemes = Scheme::all();
-        return view('admin.approvedPurchases')
-            ->with('user',$user)
-            ->with('purchases',$purchases)
-            ->with('schemes',$schemes);
+{
+    $user = User::where('phone', session()->get('logged'))->first();
+
+    // Fetch all approved purchases (no change in filtering)
+    $purchases = Purchase::where("status", "1")->paginate(10);
+    
+    // Fetch all schemes (no change needed for schemes)
+    $schemes = Scheme::all();
+
+    // Adjust the 'created_at' date for each purchase to reflect the 9 PM rule
+    foreach ($purchases as $purchase) {
+        $createdAt = Carbon::parse($purchase->created_at);
+
+        // Get 9 PM on the same day as the created_at timestamp
+        $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+        
+        // If the record was created after 9 PM, adjust the date to the next day
+        if ($createdAt->greaterThan($ninePmSameDay)) {
+            // Adjust the 'created_at' to the next day (start of the next day)
+            $purchase->created_at = $createdAt->addDay()->startOfDay();
+        }
     }
+
+    // Return the view with the necessary data
+    return view('admin.approvedPurchases')
+        ->with('user', $user)
+        ->with('purchases', $purchases)
+        ->with('schemes', $schemes);
+}
     
 
     
+    // public function filterSubmit(Request $request)
+    // {
+    //     $user = User::where('phone',session()->get('logged'))->first();
+    //     // Retrieve the scheme_id and date from the request
+    //     $scheme_id = $request->input('scheme_id');
+    //     $date = $request->input('date');
+
+    //     // Validate inputs
+    //     $request->validate([
+    //         'scheme_id' => 'required|exists:schemes,scheme_id', // Ensures scheme_id is valid
+    //         'date' => 'required|date', // Ensures date is valid
+    //     ]);
+
+    //     // Query the database with the scheme_id and date
+        
+
+    //     // Fetch schemes for the dropdown
+    //     $schemes = Scheme::all();
+    //     if($request->filter=="approve")
+    //     {
+    //         $purchases = Purchase::where('scheme_id', $scheme_id)->where('status','1')
+    //         ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
+    //         ->paginate(10);
+    //         return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
+    //     }
+    //     else
+    //     {
+    //         $purchases = Purchase::where('scheme_id', $scheme_id)->where('status','3')
+    //         ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
+    //         ->paginate(10);
+    //         return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
+    //     }
     public function filterSubmit(Request $request)
-    {
-        $user = User::where('phone',session()->get('logged'))->first();
-        // Retrieve the scheme_id and date from the request
-        $scheme_id = $request->input('scheme_id');
-        $date = $request->input('date');
+{
+    $user = User::where('phone', session()->get('logged'))->first();
 
-        // Validate inputs
-        $request->validate([
-            'scheme_id' => 'required|exists:schemes,scheme_id', // Ensures scheme_id is valid
-            'date' => 'required|date', // Ensures date is valid
-        ]);
+    // Retrieve the scheme_id and date from the request
+    $scheme_id = $request->input('scheme_id');
+    $date = $request->input('date');
 
-        // Query the database with the scheme_id and date
-        
+    // Validate inputs
+    $request->validate([
+        'scheme_id' => 'required|exists:schemes,scheme_id', // Ensures scheme_id is valid
+        'date' => 'required|date', // Ensures date is valid
+    ]);
+    
+    // Fetch all schemes
+    $schemes = Scheme::all();
 
-        // Fetch schemes for the dropdown
-        $schemes = Scheme::all();
-        if($request->filter=="approve")
-        {
-            $purchases = Purchase::where('scheme_id', $scheme_id)->where('status','1')
-            ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
+    // Parse the provided date
+    $filterDate = Carbon::parse($date);
+
+    // Calculate the previous day's 9 PM and the selected day's 9 PM
+    $previousDay9PM = $filterDate->copy()->subDay()->setTime(21, 0, 0); // Previous day's 9 PM
+    $currentDay9PM = $filterDate->copy()->setTime(21, 0, 0); // Current day's 9 PM
+
+    // Query the database with the scheme_id and the adjusted date range (previous day 9 PM to current day 9 PM)
+    if ($request->filter == "approve") {
+        $purchases = Purchase::where('scheme_id', $scheme_id)
+            ->where('status', '1') // Status '1' for approved purchases
+            ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
             ->paginate(10);
-            return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
-        }
-        else
-        {
-            $purchases = Purchase::where('scheme_id', $scheme_id)->where('status','3')
-            ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
-            ->paginate(10);
-            return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
-        }
-
-        // Return the same view with the filtered data
+            foreach ($purchases as $purchase) {
+                $createdAt = Carbon::parse($purchase->created_at);
         
+                // Get 9 PM on the same day as the created_at timestamp
+                $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+                
+                // If the record was created after 9 PM, adjust the date to the next day
+                if ($createdAt->greaterThan($ninePmSameDay)) {
+                    // Adjust the 'created_at' to the next day (start of the next day)
+                    $purchase->created_at = $createdAt->addDay()->startOfDay();
+                }
+            }
+
+        return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
+    } else {
+        $purchases = Purchase::where('scheme_id', $scheme_id)
+            ->where('status', '3') // Status '3' for pending purchases
+            ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
+            ->paginate(10);
+            foreach ($purchases as $purchase) {
+                $createdAt = Carbon::parse($purchase->created_at);
+        
+                // Get 9 PM on the same day as the created_at timestamp
+                $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+                
+                // If the record was created after 9 PM, adjust the date to the next day
+                if ($createdAt->greaterThan($ninePmSameDay)) {
+                    // Adjust the 'created_at' to the next day (start of the next day)
+                    $purchase->created_at = $createdAt->addDay()->startOfDay();
+                }
+            }
+
+        return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
     }
+}
 
 }
