@@ -479,6 +479,9 @@ class AdminController extends Controller
             ->with('purchases',$purchases)
             ->with('schemes',$schemes);
     }
+    
+
+    
     public function filterSubmit(Request $request)
     {
         $user = User::where('phone',session()->get('logged'))->first();
@@ -493,15 +496,27 @@ class AdminController extends Controller
         ]);
 
         // Query the database with the scheme_id and date
-        $purchases = Purchase::where('scheme_id', $scheme_id)
-            ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
-            ->get();
+        
 
         // Fetch schemes for the dropdown
         $schemes = Scheme::all();
+        if($request->filter=="approve")
+        {
+            $purchases = Purchase::where('scheme_id', $scheme_id)->where('status','1')
+            ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
+            ->paginate(10);
+            return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
+        }
+        else
+        {
+            $purchases = Purchase::where('scheme_id', $scheme_id)->where('status','3')
+            ->whereDate('created_at', $date)  // Assuming you're filtering by created_at date
+            ->paginate(10);
+            return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
+        }
 
         // Return the same view with the filtered data
-        return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
+        
     }
 
 }

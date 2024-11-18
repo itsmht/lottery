@@ -63,6 +63,37 @@
                                 </div>
         
                             </div>
+                            <div class="row">
+                                <div class="col-sm-1 col-md-6">
+                                    <div class="dt-buttons btn-group">
+                                        <div class="col-sm-12">
+                                            <form action="{{ route('filterSubmit') }}" method="POST">
+                                                {{ @csrf_field() }}
+                                                <div class="input-group mb-3">
+                                                    <!-- Scheme Select Dropdown -->
+                                                    <select name="scheme_id" class="form-control" id="scheme_id">
+                                                        @foreach($schemes as $scheme)
+                                                            <option value="{{ $scheme->scheme_id }}" {{ old('scheme_id') == $scheme->scheme_id ? 'selected' : '' }}>
+                                                                {{ $scheme->title }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+
+                                                    <!-- Date Picker Input -->
+                                                    <input type="date" name="date" class="form-control" style="margin-left: 10px;" value="{{ old('date') }}" />
+                                                    <input type="hidden" name="filter" value="pending">
+
+                                                    <!-- Submit Button -->
+                                                    <button style="margin-left: 10px;" class="input-group-text" type="submit">
+                                                        <i class="zmdi zmdi-filter-list"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
 
 

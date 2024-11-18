@@ -45,6 +45,7 @@
 
                                                     <!-- Date Picker Input -->
                                                     <input type="date" name="date" class="form-control" style="margin-left: 10px;" value="{{ old('date') }}" />
+                                                    <input type="hidden" name="filter" value="approve">
 
                                                     <!-- Submit Button -->
                                                     <button style="margin-left: 10px;" class="input-group-text" type="submit">
