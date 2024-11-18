@@ -131,6 +131,14 @@
      </li>
 
 @endif
+@if($user->type==2 || $user->type==3)
+      <li>
+        <a href="{{route('info')}}">
+            <i class="zmdi zmdi-lock"></i> <span>Site Information</span>
+        </a>
+     </li>
+
+@endif
 
 
 

@@ -5,6 +5,7 @@ use App\Models\ReferCodes;
 use App\Models\User;
 use App\Models\Transaction;
 use App\Models\Scheme;
+use App\Models\Info;
 use App\Models\Purchase;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
@@ -575,69 +576,87 @@ class AdminController extends Controller
     //         return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
     //     }
     public function filterSubmit(Request $request)
-{
-    $user = User::where('phone', session()->get('logged'))->first();
+    {
+        $user = User::where('phone', session()->get('logged'))->first();
 
-    // Retrieve the scheme_id and date from the request
-    $scheme_id = $request->input('scheme_id');
-    $date = $request->input('date');
+        // Retrieve the scheme_id and date from the request
+        $scheme_id = $request->input('scheme_id');
+        $date = $request->input('date');
 
-    // Validate inputs
-    $request->validate([
-        'scheme_id' => 'required|exists:schemes,scheme_id', // Ensures scheme_id is valid
-        'date' => 'required|date', // Ensures date is valid
-    ]);
-    
-    // Fetch all schemes
-    $schemes = Scheme::all();
+        // Validate inputs
+        $request->validate([
+            'scheme_id' => 'required|exists:schemes,scheme_id', // Ensures scheme_id is valid
+            'date' => 'required|date', // Ensures date is valid
+        ]);
 
-    // Parse the provided date
-    $filterDate = Carbon::parse($date);
+        // Fetch all schemes
+        $schemes = Scheme::all();
 
-    // Calculate the previous day's 9 PM and the selected day's 9 PM
-    $previousDay9PM = $filterDate->copy()->subDay()->setTime(21, 0, 0); // Previous day's 9 PM
-    $currentDay9PM = $filterDate->copy()->setTime(21, 0, 0); // Current day's 9 PM
+        // Parse the provided date
+        $filterDate = Carbon::parse($date);
 
-    // Query the database with the scheme_id and the adjusted date range (previous day 9 PM to current day 9 PM)
-    if ($request->filter == "approve") {
-        $purchases = Purchase::where('scheme_id', $scheme_id)
-            ->where('status', '1') // Status '1' for approved purchases
-            ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
-            ->paginate(10);
-            foreach ($purchases as $purchase) {
-                $createdAt = Carbon::parse($purchase->created_at);
-        
-                // Get 9 PM on the same day as the created_at timestamp
-                $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+        // Calculate the previous day's 9 PM and the selected day's 9 PM
+        $previousDay9PM = $filterDate->copy()->subDay()->setTime(21, 0, 0); // Previous day's 9 PM
+        $currentDay9PM = $filterDate->copy()->setTime(21, 0, 0); // Current day's 9 PM
+
+        // Query the database with the scheme_id and the adjusted date range (previous day 9 PM to current day 9 PM)
+        if ($request->filter == "approve") {
+            $purchases = Purchase::where('scheme_id', $scheme_id)
+                ->where('status', '1') // Status '1' for approved purchases
+                ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
+                ->paginate(10);
+                foreach ($purchases as $purchase) {
+                    $createdAt = Carbon::parse($purchase->created_at);
                 
-                // If the record was created after 9 PM, adjust the date to the next day
-                if ($createdAt->greaterThan($ninePmSameDay)) {
-                    // Adjust the 'created_at' to the next day (start of the next day)
-                    $purchase->created_at = $createdAt->addDay()->startOfDay();
-                }
-            }
+                    // Get 9 PM on the same day as the created_at timestamp
+                    $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
 
-        return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
-    } else {
-        $purchases = Purchase::where('scheme_id', $scheme_id)
-            ->where('status', '3') // Status '3' for pending purchases
-            ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
-            ->paginate(10);
-            foreach ($purchases as $purchase) {
-                $createdAt = Carbon::parse($purchase->created_at);
-        
-                // Get 9 PM on the same day as the created_at timestamp
-                $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+                    // If the record was created after 9 PM, adjust the date to the next day
+                    if ($createdAt->greaterThan($ninePmSameDay)) {
+                        // Adjust the 'created_at' to the next day (start of the next day)
+                        $purchase->created_at = $createdAt->addDay()->startOfDay();
+                    }
+                }
+
+            return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
+        } else {
+            $purchases = Purchase::where('scheme_id', $scheme_id)
+                ->where('status', '3') // Status '3' for pending purchases
+                ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
+                ->paginate(10);
+                foreach ($purchases as $purchase) {
+                    $createdAt = Carbon::parse($purchase->created_at);
                 
-                // If the record was created after 9 PM, adjust the date to the next day
-                if ($createdAt->greaterThan($ninePmSameDay)) {
-                    // Adjust the 'created_at' to the next day (start of the next day)
-                    $purchase->created_at = $createdAt->addDay()->startOfDay();
-                }
-            }
+                    // Get 9 PM on the same day as the created_at timestamp
+                    $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
 
-        return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
+                    // If the record was created after 9 PM, adjust the date to the next day
+                    if ($createdAt->greaterThan($ninePmSameDay)) {
+                        // Adjust the 'created_at' to the next day (start of the next day)
+                        $purchase->created_at = $createdAt->addDay()->startOfDay();
+                    }
+                }
+
+            return view('admin.purchaseList', compact('purchases', 'schemes'))->with('user', $user);
+        }
     }
-}
+    function info()
+    {
+        $user = User::where('phone', session()->get('logged'))->first();
+        $info = Info::where('info_id', 1)->first();
+        return view('admin.info')->with('user',$user)->with('info',$info);
+    }
+    function updateInfo(Request $req)
+    {
+        $user = User::where('phone', session()->get('logged'))->first();
+        $info = Info::where('info_id', 1)->first();
+        $info->bkash = $req->bkash;
+        $info->nagad = $req->nagad;
+        $info->telegram = $req->nagad;
+        $info->status = "1";
+        $info->save();
+        Alert::success('Congrats', 'Inforamtion Updated!');
+        return back();
+    }
 
 }

@@ -72,6 +72,9 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user','type
     Route::post('updateAnnouncement',[AdminController::class, 'updateAnnouncement'])->name('updateAnnouncement');
     Route::get('approvedPurchases', [AdminController::class, 'approvedPurchases'])->name('approvedPurchases');
     Route::post('filterSubmit',[AdminController::class, 'filterSubmit'])->name('filterSubmit');
+    Route::get('info', [AdminController::class, 'info'])->name('info');
+    Route::post('updateInfo',[AdminController::class, 'updateInfo'])->name('updateInfo');
+
 
 
 

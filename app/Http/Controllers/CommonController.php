@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Package;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Info;
 use App\Models\Scheme;
 
 class CommonController extends Controller
@@ -61,14 +62,17 @@ class CommonController extends Controller
     function contact()
     {
         $user = User::where('phone',session()->get('logged'))->first();
+        $info = Info::where('info_id',1)->first();
         if($user)
         {
             return view('user.contact')
-                ->with('user',$user);
+                ->with('user',$user)
+                ->with('info',$info);
         }
         else
         {
-            return view('user.contact');
+            return view('user.contact')
+            ->with('info',$info);
         }
     }
     function result()

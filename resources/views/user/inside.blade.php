@@ -69,8 +69,8 @@
         <p>Please send the money to the below number. And also input the last 4 digit while buying the lottery.</p>  
     </div>
     <div class="genBox mBottom fx -bt">
-        <h3><strong>Bkash:01610838330</strong></h3>   
-        <h3><strong>Nagad:01610838330</strong></h3>   
+        <h3><strong>Bkash:{{$info->bkash}}</strong></h3>   
+        <h3><strong>Nagad:{{$info->nagad}}</strong></h3>   
     </div>
 
     <!-- Add the ball container here -->

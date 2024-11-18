@@ -8,6 +8,7 @@ use App\Models\Package;
 use App\Models\Scheme;
 use App\Models\Subscription;
 use App\Models\Purchase;
+use App\Models\Info;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -288,7 +289,8 @@ class UserController extends Controller
     {
         $user = User::where('phone',session()->get('logged'))->first();
         $scheme = Scheme::where('scheme_id', $req->id)->first();
-        return view('user.inside')->with('scheme',$scheme)->with('user',$user);
+        $info = Info::where('info_id',1)->first();
+        return view('user.inside')->with('scheme',$scheme)->with('user',$user)->with('info',$info);
     }
     function buyLottery(Request $req)
     {
