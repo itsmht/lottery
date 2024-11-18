@@ -620,7 +620,30 @@ class AdminController extends Controller
                 }
 
             return view('admin.approvedPurchases', compact('purchases', 'schemes'))->with('user', $user);
-        } else {
+        } 
+        elseif($request->filter == "win")
+        {
+            $purchases = Purchase::where('scheme_id', $scheme_id)
+                ->where('status', '1') // Status '1' for approved purchases
+                ->where('is_win', 1)
+                ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
+                ->paginate(10);
+                foreach ($purchases as $purchase) {
+                    $createdAt = Carbon::parse($purchase->created_at);
+                
+                    // Get 9 PM on the same day as the created_at timestamp
+                    $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+
+                    // If the record was created after 9 PM, adjust the date to the next day
+                    if ($createdAt->greaterThan($ninePmSameDay)) {
+                        // Adjust the 'created_at' to the next day (start of the next day)
+                        $purchase->created_at = $createdAt->addDay()->startOfDay();
+                    }
+                }
+
+            return view('admin.winnerList', compact('purchases', 'schemes'))->with('user', $user);
+        }
+        else {
             $purchases = Purchase::where('scheme_id', $scheme_id)
                 ->where('status', '3') // Status '3' for pending purchases
                 ->whereBetween('created_at', [$previousDay9PM, $currentDay9PM]) // Filter between previous day's 9 PM and current day's 9 PM
@@ -659,5 +682,35 @@ class AdminController extends Controller
         Alert::success('Congrats', 'Inforamtion Updated!');
         return back();
     }
+    function winnerList()
+{
+    $user = User::where('phone', session()->get('logged'))->first();
+
+    // Fetch all approved purchases (no change in filtering)
+    $purchases = Purchase::where("status", "1")->where('is_win', 1)->paginate(10);
+    
+    // Fetch all schemes (no change needed for schemes)
+    $schemes = Scheme::all();
+
+    // Adjust the 'created_at' date for each purchase to reflect the 9 PM rule
+    foreach ($purchases as $purchase) {
+        $createdAt = Carbon::parse($purchase->created_at);
+
+        // Get 9 PM on the same day as the created_at timestamp
+        $ninePmSameDay = $createdAt->copy()->setTime(21, 0, 0); // 9 PM of the same day as the record
+        
+        // If the record was created after 9 PM, adjust the date to the next day
+        if ($createdAt->greaterThan($ninePmSameDay)) {
+            // Adjust the 'created_at' to the next day (start of the next day)
+            $purchase->created_at = $createdAt->addDay()->startOfDay();
+        }
+    }
+
+    // Return the view with the necessary data
+    return view('admin.approvedPurchases')
+        ->with('user', $user)
+        ->with('purchases', $purchases)
+        ->with('schemes', $schemes);
+}
 
 }

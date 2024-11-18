@@ -74,6 +74,7 @@ Route::group(['middleware' => ['prevent.back', 'auth.guest', 'logged.user','type
     Route::post('filterSubmit',[AdminController::class, 'filterSubmit'])->name('filterSubmit');
     Route::get('info', [AdminController::class, 'info'])->name('info');
     Route::post('updateInfo',[AdminController::class, 'updateInfo'])->name('updateInfo');
+    Route::get('winnerList', [AdminController::class, 'winnerList'])->name('winnerList');
 
 
 
