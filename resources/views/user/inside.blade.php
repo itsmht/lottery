@@ -90,6 +90,13 @@
             <label for="selectedNumber" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Bkash/Nagad Last 4 Digit: </label>
             <input type="text" required id="selectedNumber" name="bkash"  style="font-weight: bold; padding: 12px 20px; width: 120px; text-align: center; border-radius: 8px; border: 2px solid #ffcc00; background-color: #fff3e0; font-size: 18px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
         </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <label for="paymentMethod" style="font-size: 18px; font-weight: bold; margin-right: 10px;">Payment Method: </label>
+            <select id="paymentMethod" name="paymentMethod" required style="font-weight: bold; padding: 12px 20px; width: 180px; text-align: center; border-radius: 8px; border: 2px solid #ffcc00; background-color: #fff3e0; font-size: 18px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;">
+                <option value="bkash">Bkash</option>
+                <option value="nagad">Nagad</option>
+            </select>
+        </div>
         <input type="hidden" name="scheme_id" value="{{$scheme->scheme_id}}">
         <!-- Submit Button -->
         <div style="text-align: center; margin-top: 20px;">

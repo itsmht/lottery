@@ -300,6 +300,7 @@ class UserController extends Controller
         $purchase->scheme_id = $req->scheme_id;
         $purchase->user_id = $user->user_id;
         $purchase->bkash = $req->bkash;
+        $purchase->method = $req->paymentMethod;
         $purchase->status = "3";
         $purchase->save();
         Alert::success('Congrats', 'You have successfully bought the lottery!');

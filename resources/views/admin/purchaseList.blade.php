@@ -106,6 +106,7 @@
                                         <th scope="col">Phone Number</th>
                                         <th scope="col">Scheme</th>
                                         <th scope="col">Picked Up Number</th>
+                                        <th scope="col">Payment Method</th>
                                         <th>Buying Date</th>
                                         <th scope="col">Action</th>
                                         {{-- <th scope="col">Action</th> --}}
@@ -121,6 +122,7 @@
                                             <td>{{$company->user->phone}}</td>
                                             <td>{{$company->scheme->title}}</td>
                                             <td>{{$company->picked_number}}</td>
+                                            <td>{{$company->method}}</td>
                                             <td>{{ \Carbon\Carbon::parse($company->created_at)->format('l, F j, Y') }}</td>
                                             <td>
                                                 <form action="{{route('updatePurchase',['id'=>$company->purchase_id])}}" method="post">
@@ -258,6 +260,16 @@
                 </select>
                 </div>
                 </div>
+
+                <div class="form-group row">
+                    <label for="paymentMethod" class="col-sm-3 col-form-label">Payment Method:</label>
+                    <div class="col-sm-9">
+                    <select name="paymentMethod" id="paymentMethod" class="form-control">
+                        <option value="bkash">Bkash</option>
+                        <option value="nagad">Nagad</option>
+                    </select>
+                    </div>
+                    </div>
 
 
 

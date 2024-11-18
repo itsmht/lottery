@@ -415,6 +415,7 @@ class AdminController extends Controller
             $purchase->bkash = $req->bkash;
             $purchase->scheme_id = $req->scheme_id;
             $purchase->user_id = $user1->user_id;
+            $purchase->method = $req->paymentMethod;
             $purchase->status = "1";
             $purchase->save();
             $url = "http://bulksmsbd.net/api/smsapi";

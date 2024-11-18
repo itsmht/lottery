@@ -68,6 +68,7 @@
                                         <th scope="col">Phone Number</th>
                                         <th scope="col">Scheme</th>
                                         <th scope="col">Picked Up Number</th>
+                                        <th scope="col">Payment Method</th>
                                         <th scope="col">Result</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Buying Date</th>
@@ -83,6 +84,7 @@
                                                 <td>{{ $purchase->user->phone }}</td>
                                                 <td>{{ $purchase->scheme->title }}</td>
                                                 <td>{{ $purchase->picked_number }}</td>
+                                                <td>{{ $purchase->method }}</td>
                                                 <td>
                                                     @if ($purchase->is_win == 0)
                                                         Result Not Published
