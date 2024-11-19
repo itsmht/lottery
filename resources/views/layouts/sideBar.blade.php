@@ -99,7 +99,7 @@
      </li>
 
 @endif
-@if($user->type==2 || $user->type==3)
+@if($user->type==3)
       <li>
         <a href="{{route('schemeList')}}">
             <i class="zmdi zmdi-lock"></i> <span>Schemes</span>
@@ -107,7 +107,7 @@
      </li>
 
 @endif
-@if($user->type==2 || $user->type==3)
+@if($user->type==3)
       <li>
         <a href="{{route('purchaseList')}}">
             <i class="zmdi zmdi-lock"></i> <span>Purchase Requests</span>
@@ -131,7 +131,7 @@
      </li>
 
 @endif
-@if($user->type==2 || $user->type==3)
+@if($user->type==3)
       <li>
         <a href="{{route('announcementList')}}">
             <i class="zmdi zmdi-lock"></i> <span>Announcements</span>
@@ -139,7 +139,7 @@
      </li>
 
 @endif
-@if($user->type==2 || $user->type==3)
+@if($user->type==3)
       <li>
         <a href="{{route('info')}}">
             <i class="zmdi zmdi-lock"></i> <span>Site Information</span>
